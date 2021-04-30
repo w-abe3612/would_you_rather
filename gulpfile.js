@@ -3,7 +3,7 @@ const { src, dest, watch } = require("gulp");
 const sass = require("gulp-sass");
 
 const compileSass = (done) => {
-    src(["./src/css/scss/**.scss", "./src/css/scss/**/**.scss"])
+    src("./src/css/scss/index.scss")
         .pipe(
             sass({
                 outputStyle: "expanded"

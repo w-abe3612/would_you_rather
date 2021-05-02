@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <title>login</title>
+</head>
+
+<body>
+    <div class="l-layout">
+        <section class="m-login">
+            <header class="m-login_header">
+                <h1 class="m-title">Welcome to the Would You Rather App!</h1>
+                <p class="m-subtext">Pease sign in to continue</p>
+            </header>
+
+            <div class="inner-box">
+                <figure class="m-top_pic">
+                    <img src="./src/img/top_icon.svg" alt="top icon">
+                </figure>
+                <p class="m-sign-in">Sign in</p>
+
+                <form action="" class="m-form">
+                    
+                    <div class="m-select_user">
+                        <ul class="m-users">
+                            <li>
+                                <!-- 
+                                    TODO:
+                                    <label>
+                                        <input type="radio" name="name"  id="1" />
+                                        <div>
+                                            <figure class="m-user_pic">
+                                                <img src="" alt="">
+                                            </figure>
+                                            <p class="m-user_name">Sarah Edo</p>
+                                        </div>
+                                    </label>
+                                 -->
+                                <label for="1">
+                                    <input type="radio" name="name"  id="1" />
+                                    <span>noselect</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="2">
+                                    <input type="radio" name="name"  id="2" />
+                                    <figure class="m-user_pic">
+                                        <img src="" alt="">
+                                    </figure>
+                                    <p class="m-user_name">Sarah Edo</p>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="m-submit" type="button">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

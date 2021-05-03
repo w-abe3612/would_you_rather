@@ -11,54 +11,53 @@
 
 <body>
     <div class="l-layout">
-        <section class="m-login">
-            <header class="m-login_header">
-                <h1 class="m-title">Welcome to the Would You Rather App!</h1>
-                <p class="m-subtext">Pease sign in to continue</p>
-            </header>
-
-            <div class="inner-box">
-                <figure class="m-top_pic">
-                    <img src="./src/img/top_icon.svg" alt="top icon">
-                </figure>
-                <p class="m-sign-in">Sign in</p>
-
-                <form action="" class="m-form">
-                    
-                    <div class="m-select_user">
-                        <ul class="m-users">
-                            <li>
-                                <!-- 
-                                    TODO:
-                                    <label>
-                                        <input type="radio" name="name"  id="1" />
-                                        <div>
-                                            <figure class="m-user_pic">
-                                                <img src="" alt="">
-                                            </figure>
-                                            <p class="m-user_name">Sarah Edo</p>
-                                        </div>
-                                    </label>
-                                 -->
-                                <label for="1">
-                                    <input type="radio" name="name"  id="1" />
-                                    <span>noselect</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label for="2">
-                                    <input type="radio" name="name"  id="2" />
+        <header class="m-header">
+            <h1 class="m-header__title">Would You Rather?</h1>
+            <section class="m-content">
+                <nav class="m-content__nav">
+                    <ul class="m-menu">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">New Question</a></li>
+                        <li><a href="">Leader Board</a></li>
+                    </ul>
+                </nav>
+                <div class="m-content__login">
+                    <p class="m-user">Hello, Sarah Edo</p>
+                    <figure class="m-user_pic">
+                        <img src="" />
+                    </figure>
+                    <a class="m-logout_btn">Loggout</a>
+                </div>
+            </section>
+        </header>
+        <section class="m-home">
+            <div class="m-menu_wrap">
+                <ul class="m-tabs">
+                    <li>Unansswered Questions</li>
+                    <li>Answered Questions</li>
+                </ul>
+                <div class="m-panels">
+                    <div class="m-panel">
+                        <div class="m-qa_box">
+                            <header class="inner_header">
+                                Sarah Edo asks:
+                            </header>
+                            <div class="inner_box">
+                                <figure class="m-user_pic">
+                                    <img src="" alt="" />
+                                </figure>
+                                <div class="m-content">
+                                    <p class="m-"></p>
                                     <figure class="m-user_pic">
-                                        <img src="" alt="">
+                                        <img src="" alt="" />
                                     </figure>
-                                    <p class="m-user_name">Sarah Edo</p>
-                                </label>
-                            </li>
-                        </ul>
+                                    <p class="m-question"></p>
+                                    <button class="m-view_poll_btn" type="button">View Poll</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <button class="m-submit" type="button">Submit</button>
-                </form>
+                </div>
             </div>
         </section>
     </div>

@@ -1,0 +1,188 @@
+/*
+        <section class="m-leader_board">
+            <ul class="m-leader">
+                <li class="m-leader_card">
+                    <figure class="m-leader_pic">
+                        <img src="" alt="">
+                    </figure>
+                    <div class="m-content">
+                        <p class="m-content__name">Sarah Edo</p>
+                        <table class="m-content__score_detail">
+                            <tr>
+                                <th>Answered questions</th>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <th>Created questions</th>
+                                <td>3</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="m-score">
+                        <header class="inner_header">Score</header>
+                        <div class="inner_box">
+                            <div class="m-count">10</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+*/
+
+
+.m-leader_board{
+    width:96%;
+    max-width:768px;
+    margin:0 auto;
+    .m-leader {
+        @extend .reset;
+        list-style:none;
+        .m-leader_card{
+            display:flex;
+            flex-direction: column;
+            position:relative;
+            overflow:hidden;
+            border:solid 1px #E9E9E9;
+            border-radius: 10px;
+            padding: 20px 10px;
+            margin-bottom:20px;
+            @include mq(md){
+                flex-direction: row;
+                padding:30px;
+            }
+
+            &:before{
+                content:"";
+                position:absolute;
+                width: 90px;
+                height: 90px;
+                left: -45px;
+                top: -45px;
+                background-color: #E9E9E9;
+                transform: rotate(45deg);
+            }
+            &:after{
+                // todo:trophy
+            }
+            .m-leader_pic{
+                display:none;
+                
+                @include mq(md){
+                    content:"";
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    width:100%;
+                    max-width:142px;
+                    margin: 0;
+                    background: transparent;
+                    img{
+                        display:block;
+                        width:100%;
+                        max-width:132px;
+                        height:132px;
+                        margin:0 auto;
+                    }
+                }
+                
+            }
+            .m-content{
+                width:100%;
+                @include mq(md){
+                    content:"";
+                    display:block;
+                    width:calc(100% - 244px);
+                    background: transparent;
+                    border-right: solid 1px #E9E9E9;
+                    border-left: solid 1px #E9E9E9;
+                    @include mq(md){
+                        padding:0px 20px;
+                        margin:0px 20px;
+                    }
+                }
+                &__name{
+                    font-size:20px;
+                    line-height: 1;
+                    text-align:center;
+                    @include mq(md){
+                        font-size:24px;
+                        text-align:left;
+                        margin-bottom:40px;
+                    }
+                }
+
+                .m-leader_pic{
+                    display:flex;
+                    height:132px;
+                    margin-bottom:20px;
+                    img{
+                        display:block;
+                        width:100%;
+                        max-width:132px;
+                        height:132px;
+                        margin:0 auto;
+                    }
+                    @include mq(md){
+                        display:none;
+                    }
+                }
+                &__score_detail{
+                    width:100%;
+                    margin-bottom:20px;
+                    tr{
+                        th{
+                            width:calc(100% - 64px);
+                            font-weight:normal;
+                        }
+                        td{
+                            width: 64px;
+                            text-align:right;
+                        }
+                    }
+                    @include mq(md){
+                        margin-bottom:0px;
+                    }
+                }
+            }
+            .m-score{
+                width:100%;
+                @extend .header-in-box;
+                height:100%;
+                min-height:142px;
+
+                .inner_header{
+                    height: 48px;
+                    padding: 12px 0px;
+                    line-height: 1;
+                    font-size: 24px;
+                    text-align: center;
+                }
+
+                .inner_box{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: calc(100% - 48px);
+                    min-height:94px;
+                    .m-count{
+                        border-radius: 50%;
+                        font-size:32px;
+                        padding: 7px 0px;
+                        color:#ffffff;
+                        width: 64px;
+                        height: 64px;
+                        text-align: center;
+                        background-color: #65C2B1;
+                    }
+                }
+                
+                @include mq(md){
+                    content:"";
+                    display:block;
+                    max-width:142px;
+                    background: transparent;
+                }
+            }
+        }
+    }
+}

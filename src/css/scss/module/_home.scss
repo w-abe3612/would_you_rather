@@ -1,0 +1,124 @@
+/*
+<section class="m-home">
+            <div class="m-menu_wrap">
+                <ul class="m-tabs">
+                    <li>Unansswered Questions</li>
+                    <li>Answered Questions</li>
+                </ul>
+                <div class="m-panels">
+                    <ul class="m-panel">
+                        <li class="m-panel__item">
+                            <header class="inner_header">
+                                Sarah Edo asks:
+                            </header>
+                            <div class="inner_box">
+                                <figure class="m-user_pic">
+                                    <img src="" alt="" />
+                                </figure>
+                                <div class="m-content">
+                                    <p class="m-"></p>
+                                    <figure class="m-user_pic">
+                                        <img src="" alt="" />
+                                    </figure>
+                                    <p class="m-question"></p>
+                                    <button class="m-view_poll_btn" type="button">View Poll</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+*/
+
+.m-home{
+    width:96%;
+    max-width:768px;
+    margin:0 auto;
+    .m-menu_wrap{
+        border:solid 1px #EAEAEA;
+        padding:20px;
+        .m-tabs{
+            display:flex;
+            list-style:none;
+            li{
+                width:50%;
+            }
+        }
+        .m-panels{
+            .m-panel{
+                list-style:none;
+                &__item {
+                    @extend .header-in-box;
+                   
+                    .inner_header{
+
+                    }
+                    .inner_box{
+                        display:flex;
+                        padding:20px;
+                        .m-user_pic{
+                            display:none;
+            
+                            @include mq(md){
+                                content:"";
+                                display:flex;
+                                justify-content:center;
+                                align-items:center;
+                                width:100%;
+                                max-width:167px;
+                                margin: 0;
+                                background: transparent;
+                                margin-right:20px;
+                                border-right:solid #EAEAEA 1px;
+                                img{
+                                    display:block;
+                                    width:100%;
+                                    max-width:132px;
+                                    height:132px;
+                                    margin:0 auto;
+                                }
+                            }
+                        }
+                        .m-content{
+                            .m-watchword{
+
+                            }
+                            .m-user_pic{
+                                content:"";
+                                display:flex;
+                                justify-content:center;
+                                align-items:center;
+                                width:100%;
+                                max-width:167px;
+                                margin: 0;
+                                background: transparent;
+                                margin-right:20px;
+                                border-right:solid #EAEAEA 1px;
+                                img{
+                                    display:block;
+                                    width:100%;
+                                    max-width:132px;
+                                    height:132px;
+                                    margin:0 auto;
+                                }
+                            
+                            @include mq(md){
+                                display:none;
+                            }
+                            }
+
+                            .m-question_word{
+
+                            }
+
+                            .m-view_poll_btn{
+                                @extend .view_poll_btn;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

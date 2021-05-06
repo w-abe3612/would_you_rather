@@ -8,7 +8,7 @@
   background: transparent;
 }
 
-.header-in-box, .m-login, .m-leader_board .m-leader .m-leader_card .m-score {
+.header-in-box, .m-login, .m-home .m-menu_wrap .m-panels .m-panel__item, .m-leader_board .m-leader .m-leader_card .m-score, .m-new_question, .m-question {
   display: block;
   width: 96%;
   margin: 0 auto;
@@ -18,28 +18,28 @@
 }
 
 @media screen and (min-width: 768px) {
-  .header-in-box, .m-login, .m-leader_board .m-leader .m-leader_card .m-score {
+  .header-in-box, .m-login, .m-home .m-menu_wrap .m-panels .m-panel__item, .m-leader_board .m-leader .m-leader_card .m-score, .m-new_question, .m-question {
     max-width: 768px;
   }
 }
 
-.header-in-box header, .m-login header, .m-leader_board .m-leader .m-leader_card .m-score header {
+.header-in-box header, .m-login header, .m-home .m-menu_wrap .m-panels .m-panel__item header, .m-leader_board .m-leader .m-leader_card .m-score header, .m-new_question header, .m-question header {
   content: "";
   display: block;
   background-color: #E9E9E9;
 }
 
-.header-in-box .inner-box, .m-login .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box {
+.header-in-box .inner-box, .m-login .inner-box, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box, .m-new_question .inner-box, .m-question .inner-box {
   padding: 0px 10px 30px 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .header-in-box .inner-box, .m-login .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box {
+  .header-in-box .inner-box, .m-login .inner-box, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box, .m-new_question .inner-box, .m-question .inner-box {
     padding: 0px 30px 30px 30px;
   }
 }
 
-.reset_btn, .submit_btn, .m-login .inner-box .m-form .m-submit, .view_poll_btn {
+.reset_btn, .submit_btn, .m-login .inner-box .m-form .m-submit, .m-new_question .inner_box .m-submit, .m-question .inner_box .m-content .m-form .m-submit, .view_poll_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -48,692 +48,142 @@
   appearance: none;
 }
 
-.submit_btn, .m-login .inner-box .m-form .m-submit {
+.submit_btn, .m-login .inner-box .m-form .m-submit, .m-new_question .inner_box .m-submit, .m-question .inner_box .m-content .m-form .m-submit {
   display: block;
   color: #ffffff;
   background-color: #4EC8A3;
   border: 2px solid #4EC8A3;
   width: 100%;
+  font-size: 20px;
   max-width: 480px;
   height: 40px;
   margin: 0 auto;
   border-radius: 8px;
 }
 
-.submit_btn:hover, .m-login .inner-box .m-form .m-submit:hover {
+.submit_btn:hover, .m-login .inner-box .m-form .m-submit:hover, .m-new_question .inner_box .m-submit:hover, .m-question .inner_box .m-content .m-form .m-submit:hover {
   color: #4EC8A3;
   background-color: #ffffff;
 }
 
-.view_poll_btn {
+.view_poll_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  font-size: 20px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #4EC8A3;
+  background-color: #ffffff;
+  color: #4EC8A3;
+}
+
+.view_poll_btn:hover, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn:hover {
+  color: #4EC8A3;
   color: #ffffff;
 }
 
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-/* Document
-   ========================================================================== */
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
-
-/* Sections
-     ========================================================================== */
-/**
-   * Remove the margin in all browsers.
-   */
-body {
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
   margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
 }
 
-/**
-   * Render the `main` element consistently in IE.
-   */
-main {
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/**
-   * Correct the font size and margin on `h1` elements within `section` and
-   * `article` contexts in Chrome, Firefox, and Safari.
-   */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+nav ul {
+  list-style: none;
 }
 
-/* Grouping content
-     ========================================================================== */
-/**
-   * 1. Add the correct box sizing in Firefox.
-   * 2. Show the overflow in Edge and IE.
-   */
-hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+blockquote, q {
+  quotes: none;
 }
 
-/**
-   * 1. Correct the inheritance and scaling of font size in all browsers.
-   * 2. Correct the odd `em` font sizing in all browsers.
-   */
-pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
 }
 
-/* Text-level semantics
-     ========================================================================== */
-/**
-   * Remove the gray background on active links in IE 10.
-   */
 a {
-  background-color: transparent;
-}
-
-/**
-   * 1. Remove the bottom border in Chrome 57-
-   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-   */
-abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
-  text-decoration: underline dotted;
-  /* 2 */
-}
-
-/**
-   * Add the correct font weight in Chrome, Edge, and Safari.
-   */
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
-   * 1. Correct the inheritance and scaling of font size in all browsers.
-   * 2. Correct the odd `em` font sizing in all browsers.
-   */
-code,
-kbd,
-samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
-}
-
-/**
-   * Add the correct font size in all browsers.
-   */
-small {
-  font-size: 80%;
-}
-
-/**
-   * Prevent `sub` and `sup` elements from affecting the line height in
-   * all browsers.
-   */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-     ========================================================================== */
-/**
-   * Remove the border on images inside links in IE 10.
-   */
-img {
-  border-style: none;
-}
-
-/* Forms
-     ========================================================================== */
-/**
-   * 1. Change the font styles in all browsers.
-   * 2. Remove the margin in Firefox and Safari.
-   */
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
   margin: 0;
-  /* 2 */
-}
-
-/**
-   * Show the overflow in IE.
-   * 1. Show the overflow in Edge.
-   */
-button,
-input {
-  /* 1 */
-  overflow: visible;
-}
-
-/**
-   * Remove the inheritance of text transform in Edge, Firefox, and IE.
-   * 1. Remove the inheritance of text transform in Firefox.
-   */
-button,
-select {
-  /* 1 */
-  text-transform: none;
-}
-
-/**
-   * Correct the inability to style clickable types in iOS and Safari.
-   */
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-/**
-   * Remove the inner border and padding in Firefox.
-   */
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
   padding: 0;
-}
-
-/**
-   * Restore the focus styles unset by the previous rule.
-   */
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
-   * Correct the padding in Firefox.
-   */
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
-   * 1. Correct the text wrapping in Edge and IE.
-   * 2. Correct the color inheritance from `fieldset` elements in IE.
-   * 3. Remove the padding so developers are not caught out when they zero out
-   *    `fieldset` elements in all browsers.
-   */
-legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
-}
-
-/**
-   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
-   */
-progress {
   vertical-align: baseline;
+  background: transparent;
 }
 
-/**
-   * Remove the default vertical scrollbar in IE 10+.
-   */
-textarea {
-  overflow: auto;
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
 }
 
-/**
-   * 1. Add the correct box sizing in IE 10.
-   * 2. Remove the padding in IE 10.
-   */
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
 }
 
-/**
-   * Correct the cursor style of increment and decrement buttons in Chrome.
-   */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
+del {
+  text-decoration: line-through;
 }
 
-/**
-   * 1. Correct the odd appearance in Chrome and Safari.
-   * 2. Correct the outline style in Safari.
-   */
-[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
-}
-
-/**
-   * Remove the inner padding in Chrome and Safari on macOS.
-   */
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
-   * 1. Correct the inability to style clickable types in iOS and Safari.
-   * 2. Change font properties to `inherit` in Safari.
-   */
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
-}
-
-/* Interactive
-     ========================================================================== */
-/*
-   * Add the correct display in Edge, IE 10+, and Firefox.
-   */
-details {
-  display: block;
-}
-
-/*
-   * Add the correct display in all browsers.
-   */
-summary {
-  display: list-item;
-}
-
-/* Misc
-     ========================================================================== */
-/**
-   * Add the correct display in IE 10+.
-   */
-template {
-  display: none;
-}
-
-/**
-   * Add the correct display in IE 10.
-   */
-[hidden] {
-  display: none;
-}
-
-/*!
- * Bootstrap Reboot v4.6.0 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
-}
-
-[tabindex="-1"]:focus:not(:focus-visible) {
-  outline: 0 !important;
-}
-
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
   cursor: help;
-  border-bottom: 0;
-  -webkit-text-decoration-skip-ink: none;
-  text-decoration-skip-ink: none;
-}
-
-address {
-  margin-bottom: 1rem;
-  font-style: normal;
-  line-height: inherit;
-}
-
-ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-ol ol,
-ul ul,
-ol ul,
-ul ol {
-  margin-bottom: 0;
-}
-
-dt {
-  font-weight: 700;
-}
-
-dd {
-  margin-bottom: .5rem;
-  margin-left: 0;
-}
-
-blockquote {
-  margin: 0 0 1rem;
-}
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-small {
-  font-size: 80%;
-}
-
-sub,
-sup {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -.25em;
-}
-
-sup {
-  top: -.5em;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-a:not([href]):not([class]) {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:not([href]):not([class]):hover {
-  color: inherit;
-  text-decoration: none;
-}
-
-pre,
-code,
-kbd,
-samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1em;
-}
-
-pre {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  -ms-overflow-style: scrollbar;
-}
-
-figure {
-  margin: 0 0 1rem;
-}
-
-img {
-  vertical-align: middle;
-  border-style: none;
-}
-
-svg {
-  overflow: hidden;
-  vertical-align: middle;
 }
 
 table {
   border-collapse: collapse;
+  border-spacing: 0;
 }
 
-caption {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: #6c757d;
-  text-align: left;
-  caption-side: bottom;
-}
-
-th {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
-}
-
-label {
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-button {
-  border-radius: 0;
-}
-
-button:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-input,
-button,
-select,
-optgroup,
-textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-button,
-input {
-  overflow: visible;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-[role="button"] {
-  cursor: pointer;
-}
-
-select {
-  word-wrap: normal;
-}
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-button:not(:disabled),
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled) {
-  cursor: pointer;
-}
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-textarea {
-  overflow: auto;
-  resize: vertical;
-}
-
-fieldset {
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-legend {
+/* change border colour to suit your needs */
+hr {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
   padding: 0;
-  margin-bottom: .5rem;
-  font-size: 1.5rem;
-  line-height: inherit;
-  color: inherit;
-  white-space: normal;
 }
 
-progress {
-  vertical-align: baseline;
+input, select {
+  vertical-align: middle;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-[type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: none;
-}
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
-}
-
-output {
-  display: inline-block;
-}
-
-summary {
-  display: list-item;
-  cursor: pointer;
-}
-
-template {
-  display: none;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-/*# sourceMappingURL=bootstrap-reboot.css.map */
 body {
   font-size: 16px;
   line-height: 1.5;
@@ -1136,34 +586,121 @@ body {
 }
 
 /*
-        <section class="m-leader_board">
-            <ul class="m-leader">
-                <li class="m-leader_card">
-                    <figure class="m-leader_pic">
-                        <img src="" alt="">
-                    </figure>
-                    <div class="m-content">
-                        <p class="m-content__name">Sarah Edo</p>
-                        <table class="m-content__score_detail">
-                            <tr>
-                                <th>Answered questions</th>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <th>Created questions</th>
-                                <td>3</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="m-score">
-                        <header class="inner_header">Score</header>
-                        <div class="inner_box">
-                            <div class="m-count">10</div>
+<section class="m-home">
+            <div class="m-menu_wrap">
+                <ul class="m-tabs">
+                    <li>Unansswered Questions</li>
+                    <li>Answered Questions</li>
+                </ul>
+                <div class="m-panels">
+                    <ul class="m-panel">
+                        <li class="m-panel__item">
+                            <header class="inner_header">
+                                Sarah Edo asks:
+                            </header>
+                            <div class="inner_box">
+                                <figure class="m-user_pic">
+                                    <img src="" alt="" />
+                                </figure>
+                                <div class="m-content">
+                                    <p class="m-"></p>
+                                    <figure class="m-user_pic">
+                                        <img src="" alt="" />
+                                    </figure>
+                                    <p class="m-question"></p>
+                                    <button class="m-view_poll_btn" type="button">View Poll</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </section>
+*/
+.m-home {
+  width: 96%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.m-home .m-menu_wrap {
+  border: solid 1px #EAEAEA;
+  padding: 20px;
+}
+
+.m-home .m-menu_wrap .m-tabs {
+  display: flex;
+  list-style: none;
+}
+
+.m-home .m-menu_wrap .m-tabs li {
+  width: 50%;
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel {
+  list-style: none;
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel__item .inner_box {
+  display: flex;
+  padding: 20px;
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-user_pic {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-user_pic {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 167px;
+    margin: 0;
+    background: transparent;
+    margin-right: 20px;
+    border-right: solid #EAEAEA 1px;
+  }
+  .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-user_pic img {
+    display: block;
+    width: 100%;
+    max-width: 132px;
+    height: 132px;
+    margin: 0 auto;
+  }
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-user_pic {
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 167px;
+  margin: 0;
+  background: transparent;
+  margin-right: 20px;
+  border-right: solid #EAEAEA 1px;
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-user_pic img {
+  display: block;
+  width: 100%;
+  max-width: 132px;
+  height: 132px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-user_pic {
+    display: none;
+  }
+}
+
+/*
+ 
 */
 .m-leader_board {
   width: 96%;
@@ -1345,4 +882,218 @@ body {
     max-width: 142px;
     background: transparent;
   }
+}
+
+/*
+        <section class="m-new_question">
+            <header class="inner_header">
+                <h2>Create New Question</h2>
+            </header>
+            <div class="inner_box">
+                <p class="m-watchword">Would You Rather ...</p>
+                <form action="" class="m-form">
+                    <input type="text" name="" id="">
+                    <div class="m-separate"><span >OR</span></div>
+                    <input type="text" name="" id="">
+                    <button class="m-submit" type="button">Submit</button>
+                </form>
+            </div>
+        </section>
+*/
+.m-new_question {
+  width: 96%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.m-new_question .inner_header h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.m-new_question .inner_box {
+  width: 100%;
+  display: block;
+  max-width: 480px;
+  margin: 0 auto 10px;
+}
+
+.m-new_question .inner_box .m-watchword {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.m-new_question .inner_box input {
+  width: 100%;
+  display: block;
+  max-width: 480px;
+  margin: 0 auto 10px;
+  border: solid 1px #424242;
+  border-radius: 8px;
+  position: relative;
+}
+
+.m-new_question .inner_box .m-separate {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.m-new_question .inner_box .m-separate:before {
+  content: "";
+  width: 100%;
+  display: block;
+  height: 1px;
+  position: absolute;
+  background-color: #424242;
+}
+
+.m-new_question .inner_box .m-separate span {
+  display: block;
+  padding: 0px 10px;
+  background-color: #fff;
+}
+
+/*
+
+*/
+.m-question {
+  width: 96%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.m-question .inner_box {
+  display: flex;
+  padding: 20px 30px 20px 20px;
+}
+
+.m-question .inner_box .m-user_pic {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .m-question .inner_box .m-user_pic {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 167px;
+    margin: 0;
+    background: transparent;
+    margin-right: 20px;
+    border-right: solid #EAEAEA 1px;
+  }
+  .m-question .inner_box .m-user_pic img {
+    display: block;
+    width: 100%;
+    max-width: 132px;
+    height: 132px;
+    margin: 0 auto;
+  }
+}
+
+.m-question .inner_box .m-content {
+  width: 100%;
+  max-width: calc(100% - 142px);
+}
+
+.m-question .inner_box .m-content .m-watchword {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.m-question .inner_box .m-content .m-user_pic {
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 167px;
+  margin: 0;
+  background: transparent;
+  margin-right: 20px;
+  border-right: solid #EAEAEA 1px;
+}
+
+.m-question .inner_box .m-content .m-user_pic img {
+  display: block;
+  width: 100%;
+  max-width: 132px;
+  height: 132px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .m-question .inner_box .m-content .m-user_pic {
+    display: none;
+  }
+}
+
+.m-question .inner_box .m-content .m-form .m-radio-input {
+  display: none;
+}
+
+.m-question .inner_box .m-content .m-form .m-radio-input + label {
+  padding-left: 20px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.m-question .inner_box .m-content .m-form .m-radio-input + label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
+  border-radius: 50%;
+}
+
+.m-question .inner_box .m-content .m-form .m-radio-input:checked + label {
+  color: #d01137;
+}
+
+.m-question .inner_box .m-content .m-form .m-radio-input:checked + label::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 11px;
+  height: 11px;
+  background: #d01137;
+  border-radius: 50%;
+}
+
+.m-question .inner_box .m-content .m-form .m-submit {
+  width: 100%;
+  max-width: 100%;
+}
+
+.m-question .inner_box .m-results {
+  list-style: none;
+}
+
+.m-question .inner_box .m-results li {
+  border: solid #EAEAEA 1px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.m-question .inner_box .m-results li .m-question_word {
+  margin-bottom: 20px;
+}
+
+.m-question .inner_box .m-results li .m-graph {
+  content: "";
+  background: #EAEAEA;
+  display: block;
+  height: 40px;
+  width: 100%;
 }

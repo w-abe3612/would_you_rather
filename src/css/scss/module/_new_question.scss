@@ -1,0 +1,72 @@
+/*
+        <section class="m-new_question">
+            <header class="inner_header">
+                <h2>Create New Question</h2>
+            </header>
+            <div class="inner_box">
+                <p class="m-watchword">Would You Rather ...</p>
+                <form action="" class="m-form">
+                    <input type="text" name="" id="">
+                    <div class="m-separate"><span >OR</span></div>
+                    <input type="text" name="" id="">
+                    <button class="m-submit" type="button">Submit</button>
+                </form>
+            </div>
+        </section>
+*/
+
+.m-new_question{
+    @extend .header-in-box;
+    width:96%;
+    max-width:768px;
+    margin:0 auto;
+    
+    .inner_header {
+        h2{
+            text-align:center;
+            font-size:24px;
+            font-weight:normal;
+        }
+    }
+
+    .inner_box{
+        width: 100%;
+            display:block;
+            max-width: 480px;
+            margin: 0 auto 10px;
+        .m-watchword{
+            font-size:24px;
+            font-weight:normal;
+        }
+        input{
+            width: 100%;
+            display:block;
+            max-width: 480px;
+            margin: 0 auto 10px;
+            border: solid 1px #424242;
+            border-radius: 8px;
+            position: relative;
+        }
+        .m-separate{
+            width: 100%;
+            display:block;
+            position:relative;
+            &:before{
+                content:"";
+                width: 100%;
+                display:block;
+                height:1px;
+                position:absolute;
+                background-color: #424242;
+            }
+            span{
+                display:block;
+                padding:0px 10px;
+                background-color: #fff;
+            }
+        }
+        .m-submit{
+            @extend .submit_btn;
+        }
+    }
+}

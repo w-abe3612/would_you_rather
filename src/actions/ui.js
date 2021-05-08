@@ -1,19 +1,18 @@
-export const RECEIVE_TOGGLE_FLG = 'RECEIVE_TOGGLE_FLG'
+export const RECEIVE_UI_STATES = 'RECEIVE_UI_STATES'
 export const TOGGLE_BUTTON = 'TOGGLE_BUTTON'
-//todo:tab
+//todo:タブの切り替え
+//todo:セレクトボタンの表示非表示
 
-export function receiveToggleFlg (header) {
+export function receiveUiStates (ui) {
     return {
-        type:RECEIVE_TOGGLE_FLG,
-        header
+        type:RECEIVE_UI_STATES,
+        ui
     }
 }
 
-export function toggleButton (toggleFlg) {
+export function toggleButton (ui) {
     return {
         type:TOGGLE_BUTTON,
-        header:{
-            toggleFlg:!toggleFlg
-        }
+        ui
     }
 }

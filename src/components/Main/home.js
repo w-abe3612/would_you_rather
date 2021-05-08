@@ -1,36 +1,39 @@
-class Home extends Component{
-    render(){
-        return(
-<section class="m-home">
-            <div class="m-menu_wrap">
-                <ul class="m-tabs">
-                    <li>Unansswered Questions</li>
-                    <li>Answered Questions</li>
-                </ul>
-                <div class="m-panels">
-                    <ul class="m-panel">
-                        <li class="m-panel__item">
-                            <header class="inner_header">
-                                Sarah Edo asks:
+import React, { Component,Fragment } from 'react'
+import { connect } from 'react-redux'
+
+class Home extends Component {
+    render() {
+        return (
+            <section className="m-home">
+                <div className="m-menu_wrap">
+                    <ul className="m-tabs">
+                        <li>Unansswered Questions</li>
+                        <li>Answered Questions</li>
+                    </ul>
+                    <div className="m-panels">
+                        <ul className="m-panel">
+                            <li className="m-panel__item">
+                                <header className="inner_header">
+                                    Sarah Edo asks:
                             </header>
-                            <div class="inner_box">
-                                <figure class="m-user_pic">
-                                    <img src="" alt="" />
-                                </figure>
-                                <div class="m-content">
-                                    <p class="m-watchword">Would You Rather ...</p>
-                                    <figure class="m-user_pic">
+                                <div className="inner_box">
+                                    <figure className="m-user_pic">
                                         <img src="" alt="" />
                                     </figure>
-                                    <p class="m-question_word">be a front-end developer or be a back-end developer</p>
-                                    <button class="m-view_poll_btn" type="button">View Poll</button>
+                                    <div className="m-content">
+                                        <p className="m-watchword">Would You Rather ...</p>
+                                        <figure className="m-user_pic">
+                                            <img src="" alt="" />
+                                        </figure>
+                                        <p className="m-question_word">be a front-end developer or be a back-end developer</p>
+                                        <button className="m-view_poll_btn" type="button">View Poll</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
         )
     }
 }

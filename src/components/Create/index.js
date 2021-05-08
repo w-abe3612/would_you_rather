@@ -1,3 +1,5 @@
+import React, { Component } from 'react'
+
 class createQuestion extends Component {
     render() {
         return (

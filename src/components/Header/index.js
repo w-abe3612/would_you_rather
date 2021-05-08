@@ -1,24 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import navLinks from './navLinks'
-import userView from './userView'
-import hamburgerBtn from './hamburgerBtn'
-import sideMenu from './sideMenu'
+import NavLinks from './NavLinks'
+import UserView from './UserView'
+import HamburgerBtn from './HamburgerBtn'
+import SlideMenu from './SlideMenu'
 
-class Header extends Component{
-    render(){
-        return(
-            <header class="m-header">
-                <h1 class="m-header__title">Would You Rather?</h1>
-                <section class="m-content">
-                    <navLinks/>
-                    <userView />
-                    <hamburgerBtn />
-                </section>
-                <sideMenu />
-            </header>
+class Header extends Component {
+    render() {
+        return (
+            <Fragment>
+                { this.props.authedUser !== undefined && (
+                    <header className="m-header">
+                        <h1 className="m-header__title">Would You Rather?</h1>
+                        <section className="m-content">
+                            <NavLinks />
+                            <UserView />
+                            <HamburgerBtn />
+                        </section>
+                        <SlideMenu />
+                    </header>
+                )}
+            </Fragment>
         )
     }
 }
 
-export default Header
+function mapStateToProps({ authedUser }) {
+    return {
+        loading: authedUser === null
+    }
+}
+
+export default connect(mapStateToProps)(Header)

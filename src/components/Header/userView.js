@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-function userView () {
+function UserView() {
     return (
-        <button class="m-content__hamburger_btn" type="button" data-toggle="true">
-            <div data-position = "top" ></div>
-            <div data-position = "mid" ></div>
-            <div data-position = "bottom" ></div>
-        </button>
-    )   
+        <div className="m-content__login">
+            <p className="m-user">Hello, Sarah Edo</p>
+            <figure className="m-user_pic">
+                <img src="" />
+            </figure>
+            <a className="m-logout_btn">Loggout</a>
+        </div>
+    )
 }
 
-export default userView
+export default UserView

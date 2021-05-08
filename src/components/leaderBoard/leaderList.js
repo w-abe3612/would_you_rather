@@ -2,10 +2,10 @@ class leaderList extends Component {
     render() {
         return (
             <li class="m-leader_card">
-                <userPic />
+                <UserPic />
                 <div class="m-content">
                     <p class="m-content__name">Sarah Edo</p>
-                    <userPic />
+                    <UserPic />
                     <scoreDetail />
                 </div>
                 <answeredScore />

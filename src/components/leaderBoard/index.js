@@ -1,3 +1,5 @@
+import React, { Component } from 'react'
+
 class leaderBoard extends Component{
     render(){
         return(

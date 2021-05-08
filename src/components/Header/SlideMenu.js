@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import UserPic from '../Common/UserPic'
 
-function sideMenu () {
+function SlideMenu () {
     return (
-        <section class="m-toggle_menu" role="switch" aria-checked="true">
-                <div class="m-toggle_menu__inner" >
-                    <p class="m-user">Hello, Sarah Edo</p>
-                    <figure class="m-user_pic">
-                        <img src="" />
-                    </figure>
-                    <nav class="m-nav">
-                        <ul class="m-menu">
+        <section className="m-toggle_menu" role="switch" aria-checked="true">
+                <div className="m-toggle_menu__inner" >
+                    <p className="m-user">Hello, Sarah Edo</p>
+                    <UserPic />
+                    <nav className="m-nav">
+                        <ul className="m-menu">
                             <li><a href="">Home</a></li>
                             <li><a href="">New Question</a></li>
                             <li><a href="">Leader Board</a></li>
@@ -22,4 +21,4 @@ function sideMenu () {
     )   
 }
 
-export default sideMenu
+export default SlideMenu

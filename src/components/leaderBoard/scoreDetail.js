@@ -1,13 +1,13 @@
-const scoreDetail = () => {
+const scoreDetail = (props) => {
     return (
         <table class="m-content__score_detail">
             <tr>
                 <th>Answered questions</th>
-                <td>7</td>
+                <td>{props.answerCount}</td>
             </tr>
             <tr>
                 <th>Created questions</th>
-                <td>3</td>
+                <td>{props.questionCount}</td>
             </tr>
         </table>
     )

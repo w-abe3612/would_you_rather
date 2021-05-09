@@ -1,17 +1,28 @@
-class leaderList extends Component {
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import UserPic from '../Common/UserPic'
+import AnsweredScore from './AnsweredScore'
+import ScoreDetail from './ScoreDetail'
+
+class LeaderList extends Component {
     render() {
         return (
-            <li class="m-leader_card">
+            <li key={this.props.id} class="m-leader_card">
                 <UserPic />
                 <div class="m-content">
-                    <p class="m-content__name">Sarah Edo</p>
+                    <p class="m-content__name">{this.props.name}</p>
                     <UserPic />
-                    <scoreDetail />
+                    <ScoreDetail 
+                        answerCount={this.props.answerCount}
+                        questionCount={this.props.questionCount}
+                    />
                 </div>
-                <answeredScore />
+                <AnsweredScore 
+                    total={this.props.total}
+                />
             </li>
         )
     }
 }
 
-export default leaderList
+export default LeaderList

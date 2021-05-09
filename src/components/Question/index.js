@@ -7,11 +7,27 @@ class Question extends Component {
     render() {
         return (
             <Fragment>
-                <Answered />
-                <Unanswered />
+                {this.props.isAnswered === true?(
+                    <Answered />
+                ):(
+                    <Unanswered />
+                )}
             </Fragment>
         )
     }
 }
 
-export default Question
+
+function mapStateToProps({ authedUser, users, questions }, props) {
+    const { questionId } = props.match.params
+    const usersData =  (Object.values(users)
+        .filter(user => 'sarahedo'.includes(user.id)))[0]
+    const isAnswered = Object.keys(usersData.answers).includes(questionId)
+    
+    return {
+        isAnswered
+    }
+}
+
+
+export default connect(mapStateToProps)(Question)

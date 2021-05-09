@@ -1,7 +1,6 @@
 export const RECEIVE_AUTHENTICATED_USER = 'RECEIVE_AUTHENTICATED_USER'
 export const LOGIN_USER = 'LOGIN_USER'
-//todo:ログイン
-//todo:ログアウト
+export const LOGOUT_USER = 'LOGOUT_USER'
 
 export function receiveAuthenticatedUser (authedUser) {
     return {

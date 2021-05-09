@@ -1,4 +1,31 @@
-class unanswered extends Component {
+import React, { Component,Fragment } from 'react'
+import { connect } from 'react-redux'
+import {handleVoteQuestionAnswer} from './actions/qustions'
+
+class Unanswered extends Component {
+    state = {
+        answer: '',
+      }
+      handleChange = (e) => {
+        const answer = e.target.value
+    
+        this.setState(() => ({
+            answer:answer
+        }))
+      }
+      //handleVoteQuestionAnswer (authedUser, qid, answer )
+      handleSubmit = (e) => {
+        e.preventDefault()
+    
+        const { answer } = this.state
+        const { dispatch, questionId } = this.props
+    
+        dispatch(handleVoteQuestionAnswer ('sarahedo', questionId, answer))
+    
+        this.setState(() => ({
+            answer:'',
+        }))
+      }
     render() {
         return (
             <section class="m-question">
@@ -14,10 +41,20 @@ class unanswered extends Component {
                         <figure class="m-user_pic">
                             <img src="" alt="" />
                         </figure>
-                        <form action="" class="m-form">
-                            <input type="radio" id="question-01" name="question" class="m-radio-input" />
+                        <form onSubmit={this.handleSubmit} class="m-form">
+                            <input 
+                                type="radio" 
+                                onChange={this.handleChange}
+                                name="optionOne" 
+                                value="optionOne"
+                                class="m-radio-input" />
                             <label for="question-01">be a front-end developer?</label>
-                            <input type="radio" id="question-02" name="question" class="m-radio-input" />
+                            <input 
+                                type="radio" 
+                                onChange={this.handleChange}
+                                name="optionTwo" 
+                                value="ooptionTwo"
+                                class="m-radio-input" />
                             <label for="question-02">be a front-end developer?</label>
                             <button class="m-submit" type="button">Submit</button>
                         </form>
@@ -28,4 +65,15 @@ class unanswered extends Component {
     }
 }
 
-export default unanswered
+
+function mapStateToProps({ authedUser, users, questions }, props) {
+    const { questionId } = props.match.params
+    const questionData =  (Object.values(questions)
+        .filter(question => questionId.includes(questionId)))[0]
+
+    return {
+        questionId
+    }
+}
+
+export default connect(mapStateToProps)(Unanswered)

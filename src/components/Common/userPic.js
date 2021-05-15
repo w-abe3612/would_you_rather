@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 class UserPic extends Component {
     render() {
-        console.log("--");
-        console.log(this.props);
         return (
             <figure class="m-user_pic">
                 <div class="inner_box">

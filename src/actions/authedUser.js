@@ -9,9 +9,29 @@ export function receiveAuthenticatedUser (authedUser) {
     }
 }
 
-export function handleLogin (id){
+export function loginUser (id){
     return {
         type:LOGIN_USER,
         id
     }
 }
+
+
+export function logoutUser (){
+    return {
+        type:LOGOUT_USER,
+    }
+}
+
+export function handleLoginUser(id){
+    return (dispatch) => {
+        dispatch(loginUser(id))
+    }
+}
+
+export function handleLogoutUser(){
+    return (dispatch) => {
+        dispatch(logoutUser())
+    }
+}
+

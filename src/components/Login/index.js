@@ -1,10 +1,25 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import SelectUsers from './SelectUsers'
+import {handleLoginUser} from '../../actions/authedUser'
 
 class Login extends Component {
     state = {
         userId:""
+    }
+
+    handleOnSubmit = (e) => {
+        e.preventDefault()
+        
+
+        const { userId } = this.state
+        const { dispatch } = this.props
+
+        dispatch(handleLoginUser(userId))
+        this.setState({userId:""})
+    }
+    selectLoginUser = (id) => {
+        this.setState({userId:id})
     }
 
     render() {
@@ -23,11 +38,11 @@ class Login extends Component {
 
                     <form 
                         className="m-form"
-                        onSubmit={ this.handleSubmit } >
-                        <SelectUsers />
+                        onSubmit={ this.handleOnSubmit } >
+                        <SelectUsers selectLoginUser={this.selectLoginUser}/>
                         <button 
-                            className="m-submit" 
-                            type="button">Submit</button>
+                            className="m-submit"
+                            type="submit">Submit</button>
                     </form>
                 </div>
             </section>
@@ -35,4 +50,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default connect()(Login)

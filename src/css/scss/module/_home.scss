@@ -37,12 +37,27 @@
     margin:0 auto;
     .m-menu_wrap{
         border:solid 1px #EAEAEA;
-        padding:20px;
         .m-tabs{
             display:flex;
             list-style:none;
+            margin-bottom:30px;
             li{
-                width:50%;
+                width: 50%;
+                text-align: center;
+                padding: 8px 0px;
+                border-bottom:solid 1px #EAEAEA;
+                span{
+                    display:none;
+                    @include mq(md){
+                        display:inline;
+                        pointer-events:none;
+                    }
+                }
+                &[data-current="true"]{
+                    background-color:#E9E9E9;
+                    color:#4EC8A3;
+                    
+                }
             }
         }
         .m-panels{
@@ -50,6 +65,7 @@
                 list-style:none;
                 &__item {
                     @extend .header-in-box;
+                    margin-bottom:20px;
                    
                     .inner_header{
 

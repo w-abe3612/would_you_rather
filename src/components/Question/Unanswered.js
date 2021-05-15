@@ -1,32 +1,44 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import {handleVoteQuestionAnswer} from './actions/qustions'
+import { Redirect } from 'react-router-dom'
+import { handleVoteQuestionAnswer } from '../../actions/questions'
 
 class Unanswered extends Component {
+
     state = {
-        answer: '',
-      }
-      handleChange = (e) => {
-        const answer = e.target.value
+        value: '',
+        toRedirect:false
+    }
+
     
+    handleChange = (e) => {
+
         this.setState(() => ({
-            answer:answer
+            value: e.target.value,
         }))
-      }
-      //handleVoteQuestionAnswer (authedUser, qid, answer )
-      handleSubmit = (e) => {
+    }
+
+    handleSubmit = (e) => {
         e.preventDefault()
-    
-        const { answer } = this.state
+        
+
+        const { value } = this.state
         const { dispatch, questionId } = this.props
-    
-        dispatch(handleVoteQuestionAnswer ('sarahedo', questionId, answer))
-    
+
+
+        dispatch(handleVoteQuestionAnswer('sarahedo', questionId, 'optionTwo'))
+
         this.setState(() => ({
-            answer:'',
+            value: '',
+            toRedirect:true
         }))
-      }
+    }
     render() {
+/*
+        if (this.state.toRedirect === true) {
+            return <Redirect to={'/questions/' + this.props.questionId} />
+        }*/
+
         return (
             <section class="m-question">
                 <header class="inner_header">
@@ -42,21 +54,23 @@ class Unanswered extends Component {
                             <img src="" alt="" />
                         </figure>
                         <form onSubmit={this.handleSubmit} class="m-form">
-                            <input 
-                                type="radio" 
+                            <input
+                                type="radio"
                                 onChange={this.handleChange}
-                                name="optionOne" 
+                                id="optionOne"
+                                name="option"
                                 value="optionOne"
                                 class="m-radio-input" />
-                            <label for="question-01">be a front-end developer?</label>
-                            <input 
-                                type="radio" 
+                            <label for="optionOne">be a front-end developer?</label>
+                            <input
+                                type="radio"
                                 onChange={this.handleChange}
-                                name="optionTwo" 
-                                value="ooptionTwo"
+                                id="optionTwo"
+                                name="option"
+                                value="optionTwo"
                                 class="m-radio-input" />
-                            <label for="question-02">be a front-end developer?</label>
-                            <button class="m-submit" type="button">Submit</button>
+                            <label for="optionTwo">be a front-end developer?</label>
+                            <button class="m-submit" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -67,13 +81,8 @@ class Unanswered extends Component {
 
 
 function mapStateToProps({ authedUser, users, questions }, props) {
-    const { questionId } = props.match.params
-    const questionData =  (Object.values(questions)
-        .filter(question => questionId.includes(questionId)))[0]
-
-    return {
-        questionId
-    }
+    console.log(props)
+    return {}
 }
 
 export default connect(mapStateToProps)(Unanswered)

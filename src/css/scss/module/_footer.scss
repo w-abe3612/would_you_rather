@@ -1,0 +1,15 @@
+.m-footer{
+    content: "";
+    display: block;
+    background-color: #E9E9E9;
+    text-align: center;
+    padding:10px 20px;
+    font-size:14px;
+    .m-license{
+        display:block;
+        font-size: 10px;
+    }
+    small{
+        display:block;
+    }
+}

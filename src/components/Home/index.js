@@ -17,15 +17,18 @@ class Home extends Component {
             <section className="m-home">
                 <div className="m-menu_wrap">
                     <ul className="m-tabs">
-                        <li id='unanswered' data-current={this.state.isCurrent === 'unanswered' ? true : false} onClick={this.handleToggleTab}>Unansswered Questions</li>
-                        <li id='answered' data-current={this.state.isCurrent === 'answered' ? true : false} onClick={this.handleToggleTab}>Answered Questions</li>
+                        <li id='unanswered' 
+                            data-current={this.state.isCurrent === 'unanswered' ? true : false} 
+                            onClick={this.handleToggleTab}>Unansswered<span> Questions</span></li>
+                        <li id='answered' 
+                            data-current={this.state.isCurrent === 'answered' ? true : false} 
+                            onClick={this.handleToggleTab}>Answered<span> Questions</span></li>
                     </ul>
                     <div className="m-panels">
                         <QuestionsList 
                             isCurrent={this.state.isCurrent} 
                             unanswered={this.props.unanswered}
                             answered={this.props.answered}
-
                         />
                     </div>
                 </div>

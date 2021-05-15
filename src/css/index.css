@@ -195,6 +195,24 @@ body {
   position: relative;
 }
 
+.l-layout .l-inner {
+  min-height: calc(100vh - 80px);
+  height: 100%;
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .l-layout .l-inner {
+    min-height: calc(100vh - 65px);
+  }
+}
+
+.l-layout .l-inner[data-loggedin="false"]:before {
+  content: "";
+  display: block;
+  padding-top: 50px;
+}
+
 .m-header {
   display: block;
   width: 100%;
@@ -522,21 +540,45 @@ body {
   border: solid 1px #424242;
   border-radius: 8px;
   position: relative;
+  /*
+ <div className="m-select_user" >
+                <ul className="m-users">
+                    {this.props.users !== undefined &&
+                        this.props.users.map((user) => (
+                            <li key={user.id} id={user.id} onClick={this.handleOnClick}>
+                                <label for={user.id + '--users'} >
+                                    <input type="radio" name="name" id={user.id + '--users'} />
+                                    <div>
+                                        <figure className="m-user_pic">
+                                            <img src="{user.avatarURL}" alt="" />
+                                        </figure>
+                                        <p className="m-user_name">{user.name}</p>
+                                    </div>
+                                </label>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
+                */
 }
 
 .m-login .inner-box .m-form .m-select_user:before {
   content: "";
   display: block;
-  padding-bottom: 40px;
   width: 100%;
   background: transparent;
 }
 
+.m-login .inner-box .m-form .m-select_user .m-selectedBox {
+  line-height: 1;
+  padding: 12px 15px;
+  display: block;
+}
+
 .m-login .inner-box .m-form .m-select_user .m-users {
   content: "";
-  display: flex;
-  flex-flow: column;
-  position: absolute;
   top: 0;
   max-width: 480px;
   width: 100%;
@@ -546,12 +588,21 @@ body {
 
 .m-login .inner-box .m-form .m-select_user .m-users li {
   display: block;
+  padding: 0px 15px;
+}
+
+.m-login .inner-box .m-form .m-select_user .m-users li[data-iscurrent="true"] {
+  background-color: #E9E9E9;
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label {
   display: flex;
   height: 40px;
   width: 100%;
+}
+
+.m-login .inner-box .m-form .m-select_user .m-users li label input[type='radio'] {
+  display: none;
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label .m-user_pic {
@@ -625,20 +676,43 @@ body {
 
 .m-home .m-menu_wrap {
   border: solid 1px #EAEAEA;
-  padding: 20px;
 }
 
 .m-home .m-menu_wrap .m-tabs {
   display: flex;
   list-style: none;
+  margin-bottom: 30px;
 }
 
 .m-home .m-menu_wrap .m-tabs li {
   width: 50%;
+  text-align: center;
+  padding: 8px 0px;
+  border-bottom: solid 1px #EAEAEA;
+}
+
+.m-home .m-menu_wrap .m-tabs li span {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .m-home .m-menu_wrap .m-tabs li span {
+    display: inline;
+    pointer-events: none;
+  }
+}
+
+.m-home .m-menu_wrap .m-tabs li[data-current="true"] {
+  background-color: #E9E9E9;
+  color: #4EC8A3;
 }
 
 .m-home .m-menu_wrap .m-panels .m-panel {
   list-style: none;
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel__item {
+  margin-bottom: 20px;
 }
 
 .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box {
@@ -1096,4 +1170,22 @@ body {
   display: block;
   height: 40px;
   width: 100%;
+}
+
+.m-footer {
+  content: "";
+  display: block;
+  background-color: #E9E9E9;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.m-footer .m-license {
+  display: block;
+  font-size: 10px;
+}
+
+.m-footer small {
+  display: block;
 }

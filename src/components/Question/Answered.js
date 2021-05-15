@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
+import UserPic from '../Common/UserPic'
 
 class Answered extends Component {
     render() {
@@ -10,14 +11,10 @@ class Answered extends Component {
                     <h2>Tyler McGinnis asks:</h2>
                 </header>
                 <div class="inner_box">
-                    <figure class="m-user_pic">
-                        <img src="" alt="" />
-                    </figure>
+                    <UserPic />
                     <div class="m-content">
                         <p class="m-watchword">Results: </p>
-                        <figure class="m-user_pic">
-                            <img src="" alt="" />
-                        </figure>
+                        <UserPic />
                         <ul class="m-results">
                             <li>
                                 <p class="m-question_word">be a front-end developer?</p>
@@ -37,19 +34,19 @@ class Answered extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }, props) {
-    const { questionId } = props.match.params
-    const questionData =  (Object.values(questions)
-        .filter(question => questionId.includes(questionId)))[0]
-    const optionOneVotes = questionData.optionOne.votes.length
+    const { questionId } = props.questionId;
+    console.log(props)
+    const questionData =  questionId?(Object.values(questions)
+        .filter(question => questionId.includes(questionId)))[0]:'';
+    const optionOneVotes = questionData?questionData.optionOne.votes.length:'';
      
-    const optionTwoVotes = questionData.optionTwo.votes.length
-    const totalVotes     = optionOneVotes + optionTwoVotes
+    const optionTwoVotes = questionData?questionData.optionTwo.votes.length:'';
+    const totalVotes     = optionOneVotes && optionTwoVotes?optionOneVotes + optionTwoVotes:''
 
-    const oneVotePercentage = Math.floor(optionOneVotes / totalVotes * 100).toFixed(0)
-    const twoVotePercentage = Math.floor(optionTwoVotes / totalVotes * 100).toFixed(0)
-    console.log(oneVotePercentage)
-    console.log(twoVotePercentage)
-    console.log(totalVotes)
+    const oneVotePercentage = optionOneVotes && totalVotes?Math.floor(optionOneVotes / totalVotes * 100).toFixed(0):''
+    const twoVotePercentage = optionTwoVotes && totalVotes?Math.floor(optionTwoVotes / totalVotes * 100).toFixed(0):''
+
+
     return {
         optionOneVotes,
         optionTwoVotes,

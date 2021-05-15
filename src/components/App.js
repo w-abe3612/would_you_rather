@@ -8,40 +8,44 @@ import Question from './Question'
 import LeaderBoard from './LeaderBoard'
 import Home from './Home'
 import Login from './Login'
+import Footer from './Common/Footer'
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
   render() {
+    
     return (
-      <div className = 'l-layout' >
-      {/*
+      <div className='l-layout'>
+        <div className='l-inner'
+          data-loggedin={this.props.authedUser === null || this.props.authedUser.id === ''  ?false:true}
+        >
+
+
+        {
+
+          this.props.authedUser === null || this.props.authedUser.id === ''  ? (
             <Router>
-        {this.props.authedUser === null ? (
-          <Route render={() => (
-            <Login />
-          )} />
-        ) : (
-          <div className='l-layout'>
-            <Header />
-            <Route path='/' exact component={Main} />
-          </div>
-        )}
-      </Router>
-      
-      */}
-      
-      <Router>
+              <Route render={() => (
+                <Login />
+              )} /></Router>
+          ) : (
+
+            <Router>
+              <Header />
+              <Route path='/' exact component={Home} />
+              <Route path='/add' component={CreateQuestion} />
+              <Route path='/leaderboard' component={LeaderBoard} />
+              <Route path='/questions/:questionId' component={Question} />
+
+            </Router>
+          )
+
+        }
         
-          <Header />
-          <Route path='/' exact component={Home} />
-          <Route path='/add' component={CreateQuestion} />
-          <Route path='/leaderboard' component={LeaderBoard} />
-          <Route path='/questions/:questionId' component={Question} />
-        
-      </Router>
-      <a href='https://jp.freepik.com/vectors/business'>Macrovector_official - jp.freepik.com によって作成された business ベクトル</a>
+        </div>
+        <Footer />
       </div >
     )
   }
@@ -49,7 +53,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authedUser
+    authedUser:authedUser !== undefined?authedUser:''
   };
 }
 export default connect(mapStateToProps)(App)

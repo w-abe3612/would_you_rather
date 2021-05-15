@@ -57,17 +57,42 @@
                 &:before{
                     content:"";
                     display:block;
-                    padding-bottom: 40px;
                     width:100%;
                     background:transparent;
+                }
+
+                /*
+ <div className="m-select_user" >
+                <ul className="m-users">
+                    {this.props.users !== undefined &&
+                        this.props.users.map((user) => (
+                            <li key={user.id} id={user.id} onClick={this.handleOnClick}>
+                                <label for={user.id + '--users'} >
+                                    <input type="radio" name="name" id={user.id + '--users'} />
+                                    <div>
+                                        <figure className="m-user_pic">
+                                            <img src="{user.avatarURL}" alt="" />
+                                        </figure>
+                                        <p className="m-user_name">{user.name}</p>
+                                    </div>
+                                </label>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
+                */
+
+                .m-selectedBox{
+                    line-height: 1;
+                    padding: 12px 15px;
+                    display: block;
                 }
 
                 .m-users{
                     @extend .reset;
                     content: "";
-                    display: flex;
-                    flex-flow: column;
-                    position: absolute;
                     top: 0;
                     max-width:480px;
                     width: 100%;
@@ -75,13 +100,17 @@
                     background-color: #ffffff;
                     li{
                         display:block;
+                        padding: 0px 15px;
+                        &[data-iscurrent="true"]{
+                            background-color: #E9E9E9;
+                        }
                         label{
                             display:flex;
                             height:40px;
                             width:100%;
 
                             input[type='radio']{
-                                //display:none;
+                                display:none;
                             }
                             .m-user_pic{
                                 @include picture(100%);

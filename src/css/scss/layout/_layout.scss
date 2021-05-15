@@ -2,4 +2,19 @@
     display:block;
     width:100%;
     position:relative;
+    .l-inner{
+        min-height:calc(100vh - 80px);
+        height:100%;
+        padding-bottom:30px;
+        @include mq(md){
+            min-height:calc(100vh - 65px);
+        }
+        &[data-loggedin="false"]{
+            &:before{
+                content:"";
+                display: block;
+                padding-top: 50px;
+            }
+        }
+    }
 }

@@ -1,6 +1,17 @@
 # Would You Rather Project
 
-This project vote on the two questions and check the results.
+このプロジェクトは「Would You Rather」ゲームになぞらえ、
+ユーザーが２択の選択肢がある問題を作成し、それに投票し、結果をシェアするという内容です。
+_DATA.jsのみ存在し、他を全部実装するという内容の課題でした。
+
+_DATA.jsにある変数をバックエンドからのレスポンズと見立て、API連携をする想定でフロントエンドを作成しています。
+
+This project is analogous to the "Would You Rather" game.
+Users create a question with two choices, vote on it, and share the results.
+Only _DATA.js existed, and the challenge was to implement everything else.
+
+The variables in _DATA.js are seen as responses from the backend, and the frontend is created with the assumption of API integration.
+**Live Demo**:[Demo](https://nostalgic-sammet-63456b.netlify.app/)
 
 ## TL;DR
 

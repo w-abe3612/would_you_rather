@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LeaderList from './LeaderList'
 
-class LeaderBoard  extends Component{
+class LeaderBoard extends Component{
     render(){
         return(
             <section className="m-leader_board">
@@ -44,4 +44,4 @@ function mapStateToProps({ users }) {
     };
   }
   
-  export default connect(mapStateToProps)(LeaderBoard );
+  export default connect(mapStateToProps)(LeaderBoard);

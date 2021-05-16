@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 import UserPic from '../Common/UserPic'
 
 function SlideMenu(props) {
-    const handleOnClick = () => {
-        props.logoutUser()
+    const handleOnClick = (e) => {
+        props.setToggle()
+        if(e.target.id === 'logout'){
+            props.logoutUser()
+        }
     }
     return (
         <Fragment>
@@ -17,10 +20,10 @@ function SlideMenu(props) {
                         <UserPic userIcon={props.loginUser.avatarURL} />
                         <nav className="m-nav">
                             <ul className="m-menu">
-                                <li><NavLink exact to="/" activeClassName="s-current" >Home</NavLink></li>
-                                <li><NavLink to="/add" activeClassName="s-current"　>New Question</NavLink></li>
-                                <li><NavLink to="/leaderboard" activeClassName="s-current" >Leader Board</NavLink></li>
-                                <li onClick={handleOnClick} >Logout</li>
+                                <li id='home' onClick={handleOnClick} ><NavLink exact to="/" activeClassName="s-current" >Home</NavLink></li>
+                                <li id='add' onClick={handleOnClick} ><NavLink to="/add" activeClassName="s-current"　>New Question</NavLink></li>
+                                <li id='leaderboard' onClick={handleOnClick} ><NavLink to="/leaderboard" activeClassName="s-current" >Leader Board</NavLink></li>
+                                <li id='logout' onClick={handleOnClick} >Logout</li>
                             </ul>
                         </nav>
                     </div>
@@ -35,6 +38,7 @@ UserPic.SlideMenu = {
     loginUser:PropTypes.object.isRequired,
     isToggle:PropTypes.bool.isRequired,
     logoutUser:PropTypes.func.isRequired,
+    setToggle:PropTypes.func.isRequired,
 }
 
 

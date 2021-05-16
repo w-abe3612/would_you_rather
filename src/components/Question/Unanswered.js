@@ -22,7 +22,7 @@ class Unanswered extends Component {
         e.preventDefault()
 
         const { value } = this.state
-        const { dispatch ,questionData,authedUser} = this.props
+        const { dispatch, questionData, authedUser } = this.props
 
         dispatch(handleVoteQuestionAnswer(authedUser.id, questionData.id, this.state.value))
 
@@ -42,23 +42,25 @@ class Unanswered extends Component {
                         <p className="m-watchword">Would You Rather ...</p>
                         <UserPic userIcon={this.props.usersData.avatarURL} />
                         <form onSubmit={this.handleSubmit} className="m-form">
-                            <input
-                                type="radio"
-                                onChange={this.handleChange}
-                                id="optionOne"
-                                name="option"
-                                value="optionOne"
-                                className="m-radio-input" />
-                            <label for="optionOne">{this.props.questionData.optionOne.text}</label>
-                            <input
-                                type="radio"
-                                onChange={this.handleChange}
-                                id="optionTwo"
-                                name="option"
-                                value="optionTwo"
-                                className="m-radio-input" />
-                            <label for="optionTwo">{this.props.questionData.optionTwo.text}</label>
-                            <button className="m-submit" 
+                            <div className="m-form__inputs">
+                                <input
+                                    type="radio"
+                                    onChange={this.handleChange}
+                                    id="optionOne"
+                                    name="option"
+                                    value="optionOne"
+                                    className="m-radio-input" />
+                                <label for="optionOne">{this.props.questionData.optionOne.text}</label>
+                                <input
+                                    type="radio"
+                                    onChange={this.handleChange}
+                                    id="optionTwo"
+                                    name="option"
+                                    value="optionTwo"
+                                    className="m-radio-input" />
+                                <label for="optionTwo">{this.props.questionData.optionTwo.text}</label>
+                            </div>
+                            <button className="m-submit"
                                 type="submit"
                                 disabled={!this.state.value} >Submit</button>
                         </form>
@@ -71,9 +73,9 @@ class Unanswered extends Component {
 
 
 Unanswered.propTypes = {
-    authedUser:PropTypes.object.isRequired,
-    usersData:PropTypes.object.isRequired,
-    questionData:PropTypes.object.isRequired,
+    authedUser: PropTypes.object.isRequired,
+    usersData: PropTypes.object.isRequired,
+    questionData: PropTypes.object.isRequired,
 }
 
 export default connect()(Unanswered)

@@ -51,13 +51,15 @@ class CreateQuestion extends Component {
                             onChange={this.handleChange}
                             value={optionOneText}
                             className="optionOneText" 
-                            id="optionOneText" />
+                            id="optionOneText" 
+                            placeholder="Please enter the first option" />
                         <div className="m-separate"><span>OR</span></div>
                         <input type="text" 
                             onChange={this.handleChange}
                             value={optionTwoText}
                             className="optionTwoText" 
-                            id="optionTwoText" />
+                            id="optionTwoText" 
+                            placeholder="Please enter your second option" />
                         <button className="m-submit" 
                             type="submit"
                             disabled={!(this.state.optionOneText && this.state.optionTwoText)} >Submit</button>

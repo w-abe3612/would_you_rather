@@ -40,6 +40,7 @@ class Header extends Component {
                     loginUser={this.props.loginUser}
                     isToggle={this.state.isToggle}
                     logoutUser={this.logoutUser}
+                    setToggle={this.setToggle}
                 />
             </header>
         )

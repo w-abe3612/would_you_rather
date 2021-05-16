@@ -3,7 +3,7 @@
     width:100%;
     position:relative;
     .l-inner{
-        min-height:calc(100vh - 65px);
+        min-height: calc(100vh - 35px);
         height:100%;
         padding-bottom:30px;
         &[data-loggedin="false"]{

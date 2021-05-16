@@ -1,35 +1,3 @@
-/*
-<section class="m-home">
-            <div class="m-menu_wrap">
-                <ul class="m-tabs">
-                    <li>Unansswered Questions</li>
-                    <li>Answered Questions</li>
-                </ul>
-                <div class="m-panels">
-                    <ul class="m-panel">
-                        <li class="m-panel__item">
-                            <header class="inner_header">
-                                Sarah Edo asks:
-                            </header>
-                            <div class="inner_box">
-                                <figure class="m-user_pic">
-                                    <img src="" alt="" />
-                                </figure>
-                                <div class="m-content">
-                                    <p class="m-"></p>
-                                    <figure class="m-user_pic">
-                                        <img src="" alt="" />
-                                    </figure>
-                                    <p class="m-question"></p>
-                                    <button class="m-view_poll_btn" type="button">View Poll</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-*/
 
 .m-home{
     width:96%;
@@ -37,6 +5,8 @@
     margin:0 auto;
     .m-menu_wrap{
         border:solid 1px #EAEAEA;
+        overflow: hidden;
+        border-radius: 8px 8px 0px 0px;
         .m-tabs{
             display:flex;
             list-style:none;
@@ -68,70 +38,61 @@
                     margin-bottom:20px;
                    
                     .inner-header{
-                        
                         font-size: 20px;
                         padding: 8px; 
                     }
                     .inner_box{
                         display:flex;
-                        padding:20px;
+                        padding: 10px;
+                        @include mq(md){
+                            padding:20px;
+                        }
                         .m-user_pic{
                             display:none;
             
                             @include mq(md){
-                                content:"";
-                                display:flex;
-                                justify-content:center;
-                                align-items:center;
-                                width:100%;
-                                max-width:167px;
-                                margin: 0;
-                                background: transparent;
-                                margin-right:20px;
-                                border-right:solid #EAEAEA 1px;
-                                img{
-                                    display:block;
-                                    width:100%;
-                                    max-width:132px;
-                                    height:132px;
-                                    margin:0 auto;
-                                }
+                                @include user_picture(142px);
+                                max-width:182px;
+                                border-right:solid 2px #EAEAEA;
                             }
                         }
                         .m-content{
+                            width:100%;
+                            padding-left:0px;
+                            @include mq(md){
+                                width:calc(100% - 182px);
+                                padding-left:20px;
+                            }
+                            
                             .m-watchword{
-
+                                font-size:20px;
+                                @include mq(md){
+                                    font-size:24px;
+                                }
                             }
                             .m-user_pic{
-                                content:"";
-                                display:flex;
-                                justify-content:center;
-                                align-items:center;
+                                @include user_picture(142px);
                                 width:100%;
-                                max-width:167px;
-                                margin: 0;
-                                background: transparent;
-                                margin-right:20px;
-                                border-right:solid #EAEAEA 1px;
-                                img{
-                                    display:block;
-                                    width:100%;
-                                    max-width:132px;
-                                    height:132px;
-                                    margin:0 auto;
-                                }
                             
-                            @include mq(md){
-                                display:none;
-                            }
+                                @include mq(md){
+                                    display:none;
+                                }
                             }
 
                             .m-question_word{
-
+                                display:block;
+                                margin-bottom:20px;
+                                
+                                @include mq(md){
+                                    min-height:calc(100% - 96px);
+                                }
                             }
 
                             .m-view_poll_btn{
                                 @extend .view_poll_btn;
+                            }
+                            .m-view_result{
+                                @extend .view_result_btn;
                             }
                         }
                     }

@@ -1,25 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 class UserPic extends Component {
     render() {
         return (
-            <figure class="m-user_pic">
-                <div class="inner_box">
-                    <img src="" alt="" />
+            <figure className="m-user_pic">
+                <div className="inner-box">
+                    <img src={ this.props.userIcon } alt="user icon" />
                 </div>
             </figure>
         )
     }
 }
 
-//todo:usersからauthedUserの値を参照する
-function mapStateToProps ({ users,authedUser }) {
-    return {
-        users,
-        authedUser
-    }
-  }
+UserPic.propTypes = {
+    userIcon:PropTypes.string.isRequired,
+}
 
-export default connect(mapStateToProps)(UserPic)
+export default UserPic

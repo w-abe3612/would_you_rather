@@ -23,7 +23,7 @@
   }
 }
 
-.header-in-box header, .m-login header, .m-home .m-menu_wrap .m-panels .m-panel__item header, .m-leader_board .m-leader .m-leader_card .m-score header, .m-new_question header, .m-question header {
+.header-in-box .inner-header, .m-login .inner-header, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-header, .m-leader_board .m-leader .m-leader_card .m-score .inner-header, .m-new_question .inner-header, .m-question .inner-header {
   content: "";
   display: block;
   background-color: #E9E9E9;
@@ -39,7 +39,7 @@
   }
 }
 
-.reset_btn, .submit_btn, .m-login .inner-box .m-form .m-submit, .m-new_question .inner_box .m-submit, .m-question .inner_box .m-content .m-form .m-submit, .view_poll_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn {
+.reset_btn, .submit_btn, .m-login .inner-box .m-form .m-submit, .m-new_question .inner_box .m-submit, .m-question .inner_box .m-content .m-form .m-submit, .view_poll_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn, .view_result_btn, .m-header .m-content__hamburger_btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -71,7 +71,10 @@
   width: 100%;
   max-width: 480px;
   font-size: 20px;
-  height: 40px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  padding: 8px 0px;
   margin: 0 auto;
   border-radius: 8px;
   border: 2px solid #4EC8A3;
@@ -80,6 +83,27 @@
 }
 
 .view_poll_btn:hover, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn:hover {
+  color: #4EC8A3;
+  color: #ffffff;
+}
+
+.view_result_btn {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  padding: 8px 0px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #4EC8A3;
+  background-color: #ffffff;
+  color: #4EC8A3;
+}
+
+.view_result_btn:hover {
   color: #4EC8A3;
   color: #ffffff;
 }
@@ -187,6 +211,7 @@ input, select {
 body {
   font-size: 16px;
   line-height: 1.5;
+  color: #424242;
 }
 
 .l-layout {
@@ -196,21 +221,15 @@ body {
 }
 
 .l-layout .l-inner {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 65px);
   height: 100%;
   padding-bottom: 30px;
-}
-
-@media screen and (min-width: 768px) {
-  .l-layout .l-inner {
-    min-height: calc(100vh - 65px);
-  }
 }
 
 .l-layout .l-inner[data-loggedin="false"]:before {
   content: "";
   display: block;
-  padding-top: 50px;
+  padding-top: 110px;
 }
 
 .m-header {
@@ -315,26 +334,29 @@ body {
 }
 
 .m-header .m-content__login .m-user_pic {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  margin: 0;
-  width: 24px;
+  max-width: 100%;
+  position: relative;
+  width: 32px;
 }
 
-.m-header .m-content__login .m-user_pic:before {
+.m-header .m-content__login .m-user_pic .inner-box {
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: auto;
+}
+
+.m-header .m-content__login .m-user_pic .inner-box img {
   content: "";
   display: block;
-  padding-top: 100%;
-}
-
-.m-header .m-content__login .m-user_pic img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 .m-header .m-content__login .m-logout_btn {
@@ -379,13 +401,27 @@ body {
   bottom: 10px;
 }
 
+.m-header .m-content__hamburger_btn[data-toggle="true"] div[data-position="top"] {
+  top: 21px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.m-header .m-content__hamburger_btn[data-toggle="true"] div[data-position="mid"], .m-header .m-content__hamburger_btn[data-toggle="true"] div[data-position="bottom"] {
+  top: 21px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .m-header .m-toggle_menu {
   display: block;
   position: absolute;
   top: 0px;
   height: 100vh;
   width: 100vw;
-  background-color: #424242;
+  background-color: rgba(66, 66, 66, 0.7);
   z-index: 8;
 }
 
@@ -404,34 +440,28 @@ body {
 }
 
 .m-header .m-toggle_menu__inner .m-user_pic {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  margin: 0;
-  height: 120px;
-  margin-bottom: 20px;
+  max-width: 100%;
+  position: relative;
 }
 
-.m-header .m-toggle_menu__inner .m-user_pic:before {
+.m-header .m-toggle_menu__inner .m-user_pic .inner-box {
+  display: block;
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  margin: auto;
+}
+
+.m-header .m-toggle_menu__inner .m-user_pic .inner-box img {
   content: "";
   display: block;
-  padding-top: 100%;
-}
-
-.m-header .m-toggle_menu__inner .m-user_pic img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.m-header .m-toggle_menu__inner .m-user_pic img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin: 0 auto;
 }
 
 .m-header .m-toggle_menu__inner .m-nav .m-menu {
@@ -441,13 +471,14 @@ body {
 .m-header .m-toggle_menu__inner .m-nav .m-menu li a {
   display: block;
   padding: 8px 0px;
+  text-decoration: none;
   line-height: 1;
   color: #424242;
 }
 
-.m-header .m-toggle_menu__inner .m-nav .m-menu li:last-child a {
+.m-header .m-toggle_menu__inner .m-nav .m-menu li:last-child {
   margin-left: -20px;
-  background-color: #9C9C9C;
+  background-color: #9c9c9c;
   padding: 8px 0px 8px 20px;
   color: #ffffff;
 }
@@ -458,12 +489,12 @@ body {
   }
 }
 
-.m-login .m-login_header {
+.m-login .inner-header {
   padding: 10px 0;
   margin-bottom: 20px;
 }
 
-.m-login .m-login_header .m-title {
+.m-login .inner-header .m-title {
   display: block;
   font-size: 16px;
   line-height: 1;
@@ -473,12 +504,12 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .m-login .m-login_header .m-title {
+  .m-login .inner-header .m-title {
     font-size: 24px;
   }
 }
 
-.m-login .m-login_header .m-subtext {
+.m-login .inner-header .m-subtext {
   display: block;
   text-align: center;
   font-size: 14px;
@@ -487,34 +518,15 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .m-login .m-login_header .m-subtext {
+  .m-login .inner-header .m-subtext {
     font-size: 16;
   }
 }
 
 .m-login .inner-box .m-top_pic {
-  position: relative;
-  width: 100%;
-  margin: 0;
   width: 100%;
   max-width: 198px;
   margin: 0 auto 20px;
-}
-
-.m-login .inner-box .m-top_pic:before {
-  content: "";
-  display: block;
-  padding-top: 75%;
-}
-
-.m-login .inner-box .m-top_pic img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .m-login .inner-box .m-sign-in {
@@ -540,6 +552,7 @@ body {
   border: solid 1px #424242;
   border-radius: 8px;
   position: relative;
+  overflow: hidden;
   /*
  <div className="m-select_user" >
                 <ul className="m-users">
@@ -567,8 +580,15 @@ body {
 .m-login .inner-box .m-form .m-select_user:before {
   content: "";
   display: block;
-  width: 100%;
-  background: transparent;
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  right: 8px;
+  top: 15px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #424242;
+  background-color: transparent;
 }
 
 .m-login .inner-box .m-form .m-select_user .m-selectedBox {
@@ -584,6 +604,7 @@ body {
   width: 100%;
   list-style: none;
   background-color: #ffffff;
+  position: relative;
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li {
@@ -599,6 +620,34 @@ body {
   display: flex;
   height: 40px;
   width: 100%;
+  /*
+@mixin user_picture($maxwidth:100%,$pixWidth:100%,$padding:0px) {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    max-width:100%;
+    position:relative;
+    @include mq(md){
+      max-width:$maxwidth;
+      padding:0px $padding;
+    }
+    .inner-box{
+      display:block;
+      max-width:$pixWidth;
+      max-width:$pixWidth;
+      width:100%;
+      height:100%;
+      margin:auto;
+      img {
+        display:block;
+        width:100%;
+        height:100%;
+        border-radius:50%;
+      }
+    }
+}
+                            */
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label input[type='radio'] {
@@ -606,30 +655,36 @@ body {
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label .m-user_pic {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  margin: 0;
-  width: 30px;
+  max-width: 100%;
+  position: relative;
+  max-width: 40px;
 }
 
-.m-login .inner-box .m-form .m-select_user .m-users li label .m-user_pic:before {
+.m-login .inner-box .m-form .m-select_user .m-users li label .m-user_pic .inner-box {
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: auto;
+}
+
+.m-login .inner-box .m-form .m-select_user .m-users li label .m-user_pic .inner-box img {
   content: "";
   display: block;
-  padding-top: 100%;
-}
-
-.m-login .inner-box .m-form .m-select_user .m-users li label .m-user_pic img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label .m-user_name {
+  width: calc(100% - 40px);
   font-size: 16px;
+  line-height: 1;
+  padding: 11px 4px;
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label:checked {
@@ -713,6 +768,11 @@ body {
 
 .m-home .m-menu_wrap .m-panels .m-panel__item {
   margin-bottom: 20px;
+}
+
+.m-home .m-menu_wrap .m-panels .m-panel__item .inner-header {
+  font-size: 20px;
+  padding: 8px;
 }
 
 .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box {
@@ -922,7 +982,7 @@ body {
   min-height: 142px;
 }
 
-.m-leader_board .m-leader .m-leader_card .m-score .inner_header {
+.m-leader_board .m-leader .m-leader_card .m-score .inner-header {
   height: 48px;
   padding: 12px 0px;
   line-height: 1;
@@ -980,7 +1040,7 @@ body {
   margin: 0 auto;
 }
 
-.m-new_question .inner_header h2 {
+.m-new_question .inner-header h2 {
   text-align: center;
   font-size: 24px;
   font-weight: normal;
@@ -1170,6 +1230,19 @@ body {
   display: block;
   height: 40px;
   width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.m-question .inner_box .m-results li .m-graph .m-tick_mark {
+  content: "";
+  display: block;
+  min-width: 30px;
+  line-height: 1;
+  padding: 11px 8px;
+  text-align: right;
+  background-color: #4EC8A3;
+  color: #ffffff;
 }
 
 .m-footer {

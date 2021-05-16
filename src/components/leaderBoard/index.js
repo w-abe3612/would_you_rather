@@ -6,8 +6,8 @@ class LeaderBoard  extends Component{
     render(){
         console.log(this.props.leaderboardData)
         return(
-            <section class="m-leader_board">
-                <ul class="m-leader">
+            <section className="m-leader_board">
+                <ul className="m-leader">
                     {
                         this.props.leaderboardData.map( (user,i)=> (
 

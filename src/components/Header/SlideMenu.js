@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 import UserPic from '../Common/UserPic'
 
 function SlideMenu(props) {
@@ -12,8 +13,8 @@ function SlideMenu(props) {
             { props.isToggle === true && (
                 <section className="m-toggle_menu" data-toggle={props.isToggle} >
                     <div className="m-toggle_menu__inner" >
-                        <p className="m-user">Hello, Sarah Edo</p>
-                        <UserPic />
+                        <p className="m-user">Hello, {props.loginUser.name}</p>
+                        <UserPic userIcon={props.loginUser.avatarURL} />
                         <nav className="m-nav">
                             <ul className="m-menu">
                                 <li><NavLink exact to="/" activeClassName="s-current" >Home</NavLink></li>
@@ -28,5 +29,13 @@ function SlideMenu(props) {
         </Fragment>
     )
 }
+
+UserPic.SlideMenu = {
+    userIcon:PropTypes.string.isRequired,
+    loginUser:PropTypes.object.isRequired,
+    isToggle:PropTypes.bool.isRequired,
+    logoutUser:PropTypes.func.isRequired,
+}
+
 
 export default SlideMenu

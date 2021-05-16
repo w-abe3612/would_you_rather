@@ -5,7 +5,6 @@ import QuestionItem from './QuestionItem'
 
 class QuestionsList extends Component {
     render() {
-        console.log(this.props.isCurrent === 'unanswered')
         return (
             <ul className="m-panel">
 

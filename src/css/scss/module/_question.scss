@@ -7,7 +7,7 @@
     width:96%;
     max-width:768px;
     margin:0 auto;
-    .inner_header{
+    .inner-header{
 
     }
     .inner_box{
@@ -130,6 +130,18 @@
                     display:block;
                     height: 40px;
                     width:100%;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    .m-tick_mark{
+                        content:"";
+                        display:block;
+                        min-width:30px;
+                        line-height: 1;
+                        padding: 11px 8px;
+                        text-align:right;
+                        background-color:#4EC8A3;
+                        color:#ffffff;
+                    }
                 }
             }
         }

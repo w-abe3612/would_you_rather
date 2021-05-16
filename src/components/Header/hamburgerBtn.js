@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
 
 function HamburgerBtn (props) {
     const handleOnClick = (e) => {
@@ -16,6 +17,11 @@ function HamburgerBtn (props) {
             <div data-position = "bottom" ></div>
         </button>
     )   
+}
+
+HamburgerBtn.propTypes = {
+    setToggle:PropTypes.func.isRequired,
+    isToggle:PropTypes.bool.isRequired,
 }
 
 export default HamburgerBtn

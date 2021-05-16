@@ -1,6 +1,6 @@
 .m-login {
     @extend .header-in-box;
-    .m-login_header{
+    .inner-header{
         padding:10px 0;
         margin-bottom:20px;
         .m-title{
@@ -28,7 +28,6 @@
 
     .inner-box{
         .m-top_pic{
-            @include picture($aspect: 75%);
             width:100%;
             max-width:198px;
             margin:0 auto 20px;
@@ -54,11 +53,19 @@
                 border:solid 1px #424242;
                 border-radius:8px;
                 position:relative;
+                overflow: hidden;
                 &:before{
                     content:"";
                     display:block;
-                    width:100%;
-                    background:transparent;
+                    position:absolute;
+                    width: 0px;
+                    height: 0px;
+                    right: 8px;
+                    top: 15px;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-top: 8px solid #424242;
+                    background-color: transparent;
                 }
 
                 /*
@@ -88,16 +95,19 @@
                     line-height: 1;
                     padding: 12px 15px;
                     display: block;
+                    
                 }
 
                 .m-users{
                     @extend .reset;
-                    content: "";
+                    content:"";
                     top: 0;
                     max-width:480px;
                     width: 100%;
                     list-style:none;
                     background-color: #ffffff;
+                    position:relative;
+                    
                     li{
                         display:block;
                         padding: 0px 15px;
@@ -112,12 +122,43 @@
                             input[type='radio']{
                                 display:none;
                             }
+                            /*
+@mixin user_picture($maxwidth:100%,$pixWidth:100%,$padding:0px) {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    max-width:100%;
+    position:relative;
+    @include mq(md){
+      max-width:$maxwidth;
+      padding:0px $padding;
+    }
+    .inner-box{
+      display:block;
+      max-width:$pixWidth;
+      max-width:$pixWidth;
+      width:100%;
+      height:100%;
+      margin:auto;
+      img {
+        display:block;
+        width:100%;
+        height:100%;
+        border-radius:50%;
+      }
+    }
+}
+                            */
                             .m-user_pic{
-                                @include picture(100%);
-                                width:30px;
+                                @include user_picture(32px);
+                                max-width:40px;
                             }
                             .m-user_name {
-                                font-size:16px;
+                                width: calc(100% - 40px);
+                                font-size: 16px;
+                                line-height: 1;
+                                padding: 11px 4px;
                             }
                             &:checked{
                                 background-color: #424242;

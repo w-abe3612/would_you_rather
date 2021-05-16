@@ -37,14 +37,17 @@ class Home extends Component {
     }
 }
 function mapStateToProps({ authedUser, users, questions }) {
-    const answeredIds = users.sarahedo !== undefined ? Object.keys(users.sarahedo.answers) : null
+    const loginUser = (Object.values(users)
+        .filter(user => authedUser.id.includes(user.id)))[0]
 
-    const answered = users.sarahedo !== undefined && questions !== undefined ?
+    const answeredIds = loginUser !== undefined ? Object.keys(loginUser.answers) : null
+
+    const answered = loginUser !== undefined && questions !== undefined ?
         Object.values(questions)
             .filter(question => answeredIds.includes(question.id))
             .sort((a, b) => b.timestamp - a.timestamp) : []
 
-    const unanswered = users.sarahedo !== undefined && questions !== undefined ?
+    const unanswered = loginUser !== undefined && questions !== undefined ?
         Object.values(questions)
             .filter(question => !answeredIds.includes(question.id))
             .sort((a, b) => b.timestamp - a.timestamp) : []

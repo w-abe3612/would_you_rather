@@ -4,11 +4,11 @@ import NavLinks from './NavLinks'
 import UserView from './UserView'
 import HamburgerBtn from './HamburgerBtn'
 import SlideMenu from './SlideMenu'
-import {handleLogoutUser} from '../../actions/authedUser'
+import { handleLogoutUser } from '../../actions/authedUser'
 
 class Header extends Component {
     state = {
-        isToggle:false
+        isToggle: false
     }
 
     logoutUser = () => {
@@ -16,41 +16,42 @@ class Header extends Component {
         dispatch(handleLogoutUser())
     }
 
-    setToggle = () =>{
+    setToggle = () => {
         this.setState({
-            isToggle:!this.state.isToggle
+            isToggle: !this.state.isToggle
         })
     }
     render() {
         return (
-            <Fragment>
-                { /*this.props.authedUser !== undefined */ true && (
-                    <header className="m-header">
-                        <h1 className="m-header__title">Would You Rather?</h1>
-                        <section className="m-content">
-                            <NavLinks />
-                            <UserView 
-                                logoutUser = {this.logoutUser}
-                            />
-                            <HamburgerBtn 
-                                isToggle={this.state.isToggle} 
-                                setToggle ={this.setToggle}
-                            />
-                        </section>
-                        <SlideMenu 
-                            isToggle={this.state.isToggle}
-                            logoutUser = {this.logoutUser}
-                        />
-                    </header>
-                )}
-            </Fragment>
+            <header className="m-header">
+                <h1 className="m-header__title">Would You Rather?</h1>
+                <section className="m-content">
+                    <NavLinks />
+                    <UserView
+                        loginUser={this.props.loginUser}
+                        logoutUser={this.logoutUser}
+                    />
+                    <HamburgerBtn
+                        isToggle={this.state.isToggle}
+                        setToggle={this.setToggle}
+                    />
+                </section>
+                <SlideMenu
+                    loginUser={this.props.loginUser}
+                    isToggle={this.state.isToggle}
+                    logoutUser={this.logoutUser}
+                />
+            </header>
         )
     }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
+    const loginUser = (Object.values(users)
+        .filter(user => authedUser.id.includes(user.id)))[0]
+
     return {
-        loading: authedUser === null
+        loginUser
     }
 }
 

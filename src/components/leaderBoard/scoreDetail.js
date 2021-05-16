@@ -1,6 +1,8 @@
-const scoreDetail = (props) => {
+import PropTypes from 'prop-types';
+
+const ScoreDetail= (props) => {
     return (
-        <table class="m-content__score_detail">
+        <table className="m-content__score_detail">
             <tr>
                 <th>Answered questions</th>
                 <td>{props.answerCount}</td>
@@ -13,4 +15,10 @@ const scoreDetail = (props) => {
     )
 }
 
-export default scoreDetail
+ScoreDetail.propTypes = {
+    answerCount:PropTypes.number.isRequired,
+    questionCount:PropTypes.number.isRequired,
+}
+
+
+export default ScoreDetail

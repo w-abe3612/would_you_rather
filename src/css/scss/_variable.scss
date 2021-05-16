@@ -39,7 +39,7 @@ $fs: (
   @include mq(md){
     max-width:768px;
   }
-  header {
+  .inner-header{
     content:"";
     display:block;
     background-color:#E9E9E9;
@@ -83,39 +83,68 @@ $fs: (
 
 .view_poll_btn{
   @extend .reset_btn;
-  display:block;
-  width:100%;
-  max-width:480px;
-  font-size:20px;
-  height:40px;
-  margin:0 auto;
-  border-radius:8px;
-  border:2px solid #4EC8A3;
-  background-color:#ffffff;
-  color:#4EC8A3;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  padding: 8px 0px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #4EC8A3;
+  background-color: #ffffff;
+  color: #4EC8A3;
   &:hover{
     color:#4EC8A3;
     color:#ffffff;
   }
 }
 
-@mixin picture($aspect: 75%) {
-    position: relative;
-    width: 100%;
-    margin:0;
-    &:before {
+.view_result_btn{
+  @extend .reset_btn;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  padding: 8px 0px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #4EC8A3;
+  background-color: #ffffff;
+  color: #4EC8A3;
+  &:hover{
+    color:#4EC8A3;
+    color:#ffffff;
+  }
+}
+
+
+
+@mixin user_picture($pixWidth:100%) {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    max-width:100%;
+    position:relative;
+    .inner-box{
+      display:block;
+      width:$pixWidth;
+      height:$pixWidth;
+      padding:0;
+      margin:auto;
+      img {
         content:"";
-        display: block;
-        padding-top: $aspect;
-    }
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
+        display:block;
+        width:$pixWidth;
+        height:$pixWidth;
+        border-radius:50%;
+      }
     }
 }
 

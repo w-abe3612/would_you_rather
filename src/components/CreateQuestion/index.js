@@ -35,14 +35,13 @@ class CreateQuestion extends Component {
     }
     render() {
         const { optionOneText,optionTwoText, toHome } = this.state
-        console.log(this.state);
 
         if (toHome === true) {
           return <Redirect to='/' />
         }
         return (
             <section className="m-new_question">
-                <header className="inner_header">
+                <header className="inner-header">
                     <h2>Create New Question</h2>
                 </header>
                 <div className="inner_box">
@@ -59,7 +58,9 @@ class CreateQuestion extends Component {
                             value={optionTwoText}
                             className="optionTwoText" 
                             id="optionTwoText" />
-                        <button className="m-submit" type="submit">Submit</button>
+                        <button className="m-submit" 
+                            type="submit"
+                            disabled={!(this.state.optionOneText && this.state.optionTwoText)} >Submit</button>
                     </form>
                 </div>
             </section>

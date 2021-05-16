@@ -4,7 +4,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="m-footer">
-                <span className="m-license"><a href='https://jp.freepik.com/vectors/business'>Macrovector_official - jp.freepik.com によって作成された business ベクトル</a></span>
+                <span className="m-license">Powerd by Abe Wataru</span>
             </footer>
         )
     }

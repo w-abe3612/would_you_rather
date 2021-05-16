@@ -67,8 +67,10 @@
                     @extend .header-in-box;
                     margin-bottom:20px;
                    
-                    .inner_header{
-
+                    .inner-header{
+                        
+                        font-size: 20px;
+                        padding: 8px; 
                     }
                     .inner_box{
                         display:flex;

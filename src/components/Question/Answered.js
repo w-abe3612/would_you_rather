@@ -1,28 +1,39 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types';
 import UserPic from '../Common/UserPic'
 
 class Answered extends Component {
     render() {
         return (
-            <section class="m-question">
-                <header class="inner_header">
+            <section className="m-question">
+                <header className="inner-header">
                     <h2>Tyler McGinnis asks:</h2>
                 </header>
-                <div class="inner_box">
-                    <UserPic />
-                    <div class="m-content">
-                        <p class="m-watchword">Results: </p>
-                        <UserPic />
-                        <ul class="m-results">
+                <div className="inner_box">
+                    <UserPic userIcon={this.props.usersData.avatarURL} />
+                    <div className="m-content">
+                        <p className="m-watchword">Results: </p>
+                        <UserPic userIcon={this.props.usersData.avatarURL} />
+                        <ul className="m-results">
                             <li>
-                                <p class="m-question_word">be a front-end developer?</p>
-                                <div class="m-graph"></div>
+                                <p className="m-question_word">{this.props.questionData.optionOne.text}</p>
+                                <div className="m-graph">
+                                    <div className="m-tick_mark"
+                                        style={{width:`${!this.props.oneVotePercentage?'0':this.props.oneVotePercentage}%`}}
+                                            
+                                            
+                                    >{(!this.props.oneVotePercentage?'0':this.props.oneVotePercentage) + '%'}</div>
+                                </div>
                             </li>
                             <li>
-                                <p class="m-question_word">be a front-end developer?</p>
-                                <div class="m-graph"></div>
+                                <p className="m-question_word">{this.props.questionData.optionTwo.text}</p>
+                                <div className="m-graph">
+                                    <div className="m-tick_mark"
+                                    style={{width:`${this.props.twoVotePercentage.toString()}%`}}
+                                    >{this.props.twoVotePercentage.toString() + '%'}</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -33,23 +44,27 @@ class Answered extends Component {
     }
 }
 
+Answered.propTypes = {
+    usersData:PropTypes.object.isRequired,
+    questionData:PropTypes.object.isRequired,
+}
+
 function mapStateToProps({ authedUser, users, questions }, props) {
-    const { questionId } = props.questionId;
-    console.log(props)
-    const questionData =  questionId?(Object.values(questions)
-        .filter(question => questionId.includes(questionId)))[0]:'';
+    const { questionData } = props;
+
     const optionOneVotes = questionData?questionData.optionOne.votes.length:'';
      
     const optionTwoVotes = questionData?questionData.optionTwo.votes.length:'';
-    const totalVotes     = optionOneVotes && optionTwoVotes?optionOneVotes + optionTwoVotes:''
+    
+    const totalVotes     = optionOneVotes + optionTwoVotes;
 
-    const oneVotePercentage = optionOneVotes && totalVotes?Math.floor(optionOneVotes / totalVotes * 100).toFixed(0):''
-    const twoVotePercentage = optionTwoVotes && totalVotes?Math.floor(optionTwoVotes / totalVotes * 100).toFixed(0):''
+    const oneVotePercentage = optionOneVotes && totalVotes?Math.floor(optionOneVotes / totalVotes * 100).toFixed(0).toString():''
+    const twoVotePercentage = optionTwoVotes && totalVotes?Math.floor(optionTwoVotes / totalVotes * 100).toFixed(0).toString():''
 
 
     return {
-        optionOneVotes,
-        optionTwoVotes,
+        oneVotePercentage,
+        twoVotePercentage,
         totalVotes
     }
 }

@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
 
-function answeredScore(props) {
+function AnsweredScore(props) {
     return (
-        <div class="m-score">
-            <header class="inner_header">Score</header>
-            <div class="inner_box">
-                <div class="m-count">{props.total}</div>
+        <div className="m-score">
+            <header className="inner-header">Score</header>
+            <div className="inner_box">
+                <div className="m-count">{props.total}</div>
             </div>
         </div>
     )
 }
 
-export default answeredScore
+AnsweredScore.propTypes = {
+    total:PropTypes.number.isRequired,
+}
+
+export default AnsweredScore

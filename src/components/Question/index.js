@@ -5,15 +5,20 @@ import Unanswered from './Unanswered'
 
 class Question extends Component {
     render() {
+        console.log("aaaaaaaaaaaaaaaaaaaaa")
+        console.log(this.props.isAnswered)
         return (
             <Fragment>
                 {this.props.isAnswered === true ? (
                     <Answered
-                        questionId={this.props.questionId}
+                        usersData={this.props.usersData && this.props.usersData} 
+                        questionData={this.props.questionData}
                     />
                 ) : (
                     <Unanswered
-                        questionId={this.props.questionId}
+                        authedUser={this.props.authedUser}
+                        usersData={this.props.usersData && this.props.usersData} 
+                        questionData={this.props.questionData}
                     />
                 )}
             </Fragment>
@@ -24,13 +29,23 @@ class Question extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, props) {
     const { questionId } = props.match.params ? props.match.params : '';
-    const usersData = questionId ? (Object.values(users)
-        .filter(user => 'sarahedo'.includes(user.id)))[0] : ''
-    const isAnswered = usersData !== undefined ? Object.keys(usersData.answers).includes(questionId) : ''
+
+    const questionData = questionId ? (Object.values(questions)
+        .filter(questions => questionId.includes(questions.id)))[0] : ''
+
+    const usersData = questionId && questionData !== '' ? (Object.values(users)
+        .filter(user => questionData.author.includes(user.id)))[0] : ''
+
+    const loginUser = (Object.values(users)
+        .filter(user => authedUser.id.includes(user.id)))[0]
+
+    const isAnswered = loginUser !== undefined ? Object.keys(loginUser .answers).includes(questionId) : ''
 
     return {
+        authedUser,
+        usersData,
+        questionData,
         isAnswered,
-        questionId
     }
 }
 

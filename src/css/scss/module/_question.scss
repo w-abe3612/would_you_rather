@@ -1,7 +1,3 @@
-/*
-
-*/
-
 .m-question{
     @extend .header-in-box;
     width:96%;
@@ -122,12 +118,18 @@
         .m-results{
             list-style:none;
             li{
-                border:solid #EAEAEA 1px;
+                border:solid 1px #EAEAEA ;
                 margin-bottom:20px;
                 padding:10px 20px;
                 border-radius:10px;
+                position:relative;
+                &[data-myvote="true"]{
+                    border:solid 2px #9EDBC8 ;
+                    color:#4EC8A3;
+                    background-color:#f0fffa;
+                }
                 .m-question_word{
-                    margin-bottom:20px;
+                    margin-bottom:10px;
                 }
                 .m-graph{
                     content:"";
@@ -140,15 +142,42 @@
                     .m-tick_mark{
                         content:"";
                         display:block;
-                        min-width:30px;
+                        min-width: 42px;
                         line-height: 1;
-                        padding: 11px 8px;
+                        padding: 12px 8px;
                         text-align:right;
                         background-color:#4EC8A3;
                         color:#ffffff;
                     }
                 }
+                .m-yourvote_icon{
+                    position: absolute;
+                    line-height: 1.2;
+                    padding: 7px;
+                    font-weight: bold;
+                    width: 38px;
+                    height: 38px;
+                    font-size: 10px;
+                    top: -15px;
+                    right: -9px;
+                    background-color: #ECC737;
+                    color: #ffffff;
+                    border-radius: 50%;
+                    transform: rotate(20deg);
+                    @include mq(md){
+                        padding: 8px;
+                        font-size: 16px;
+                        width: 54px;
+                        height: 54px;
+                        top: -15px;
+                    }
+
+                }
             }
+            
+        }
+        .m-back_btn{
+            @extend .back_btn;
         }
     }
 }

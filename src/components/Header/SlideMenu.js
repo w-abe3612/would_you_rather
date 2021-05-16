@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
+import React, { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import UserPic from '../Common/UserPic'

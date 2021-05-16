@@ -1,8 +1,3 @@
-/*
- 
-*/
-
-
 .m-leader_board{
     width:96%;
     max-width:768px;
@@ -31,31 +26,44 @@
                 height: 90px;
                 left: -45px;
                 top: -45px;
-                background-color: #E9E9E9;
                 transform: rotate(45deg);
             }
-            &:after{
-                // todo:trophy
+
+            &:first-of-type{
+                &:before{
+                    background-color:#D8C06B;
+                }
             }
-            .m-leader_pic{
+
+            &:nth-of-type(2){
+                &:before{
+                    background-color:#65C2B1;
+                }
+            }
+
+            &:last-of-type{
+                &:before{
+                    background-color:#E9E9E9;
+                }
+            }
+
+            &:after{
+                content: "★";
+                top: 4px;
+                left: 8px;
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                font-size: 18px;
+                color: #ffffff;
+            }
+            .m-user_pic{
                 display:none;
-                
+            
                 @include mq(md){
-                    content:"";
-                    display:flex;
-                    justify-content:center;
-                    align-items:center;
-                    width:100%;
-                    max-width:142px;
-                    margin: 0;
-                    background: transparent;
-                    img{
-                        display:block;
-                        width:100%;
-                        max-width:132px;
-                        height:132px;
-                        margin:0 auto;
-                    }
+                    @include user_picture(132px);
+                    max-width:182px;
+                    border-right:solid 2px #EAEAEA;
                 }
                 
             }
@@ -67,7 +75,6 @@
                     width:calc(100% - 244px);
                     background: transparent;
                     border-right: solid 1px #E9E9E9;
-                    border-left: solid 1px #E9E9E9;
                     @include mq(md){
                         padding:0px 20px;
                         margin:0px 20px;
@@ -75,26 +82,18 @@
                 }
                 &__name{
                     font-size:20px;
-                    line-height: 1;
                     text-align:center;
+                    margin-bottom:10px;
                     @include mq(md){
                         font-size:24px;
                         text-align:left;
-                        margin-bottom:40px;
+                        margin-bottom:36px;
                     }
                 }
 
-                .m-leader_pic{
-                    display:flex;
-                    height:132px;
-                    margin-bottom:20px;
-                    img{
-                        display:block;
-                        width:100%;
-                        max-width:132px;
-                        height:132px;
-                        margin:0 auto;
-                    }
+                .m-user_pic{
+                    @include user_picture(182px);
+                    margin-bottom:10px;
                     @include mq(md){
                         display:none;
                     }
@@ -116,6 +115,7 @@
                         margin-bottom:0px;
                     }
                 }
+                
             }
             .m-score{
                 width:100%;
@@ -127,8 +127,11 @@
                     height: 48px;
                     padding: 12px 0px;
                     line-height: 1;
-                    font-size: 24px;
+                    font-size: 20px;
                     text-align: center;
+                    @include mq(md){
+                        font-size: 24px;
+                    }
                 }
 
                 .inner_box{

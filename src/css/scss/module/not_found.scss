@@ -1,0 +1,27 @@
+.m-not_found{
+    @extend .header-in-box;
+    width:96%;
+    max-width:768px;
+    margin:0 auto;
+    
+    .inner-header{
+        h2{
+            font-size: 20px;
+            padding: 8px;
+            text-align:center;
+            font-weight:normal;
+        } 
+    }
+
+    .inner_box{
+        width: 100%;
+            display:block;
+            max-width: 480px;
+            margin: 0 auto;
+            padding:10px;
+            @include mq(md){
+                padding:20px;
+            }
+ 
+    }
+}

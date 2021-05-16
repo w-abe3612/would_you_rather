@@ -35,7 +35,7 @@ class SelectUsers extends Component {
                         this.props.users.map((user) => (
                             <li key={user.id}
                                 data-iscurrent={this.state.selected === user.name?true:false} >
-                                <label for={user.id } >
+                                <label htmlFor={user.id } >
                                     <input type="radio"
                                         onClick={this.handleOnClick} 
                                         name="name" 

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import QuestionsList from './QuestionsList'
 
@@ -9,7 +9,7 @@ class Home extends Component {
         isCurrent: 'unanswered'
     }
     handleToggleTab = e => {
-        this.setState({ isCurrent: e.target.id})
+        this.setState({ isCurrent: e.target.id })
     }
 
     render() {
@@ -17,16 +17,16 @@ class Home extends Component {
             <section className="m-home">
                 <div className="m-menu_wrap">
                     <ul className="m-tabs">
-                        <li id='unanswered' 
-                            data-current={this.state.isCurrent === 'unanswered' ? true : false} 
+                        <li key="unanswered" id='unanswered'
+                            data-current={this.state.isCurrent === 'unanswered' ? true : false}
                             onClick={this.handleToggleTab}>Unansswered<span> Questions</span></li>
-                        <li id='answered' 
-                            data-current={this.state.isCurrent === 'answered' ? true : false} 
+                        <li key="answered" id='answered'
+                            data-current={this.state.isCurrent === 'answered' ? true : false}
                             onClick={this.handleToggleTab}>Answered<span> Questions</span></li>
                     </ul>
                     <div className="m-panels">
-                        <QuestionsList 
-                            isCurrent={this.state.isCurrent} 
+                        <QuestionsList
+                            isCurrent={this.state.isCurrent}
                             unanswered={this.props.unanswered}
                             answered={this.props.answered}
                         />

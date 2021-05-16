@@ -10,15 +10,6 @@ $breakpoints: (
     }
 }
 
-$fs: (
-  'sm': 16px,
-  'md': 20px,
-  'lg': 24px,
-  'xl': 32px,
-  'xxl': 40px,
-
-) !default;
-
 .reset{
     margin:0;
     padding:0;
@@ -120,6 +111,30 @@ $fs: (
   &:hover{
     background-color:#61B2EC;
     color:#ffffff;
+  }
+}
+
+.back_btn{
+  @extend .reset_btn;
+  display: block;
+  width: 100%;
+  max-width: 120px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  padding: 8px 0px;
+  margin: 0px auto;
+  border-radius: 8px;
+  border: 2px solid #a0a0a0;
+  background-color: #a0a0a0;
+  color: #fff;
+  @include mq(md){
+    margin: 0px 0px 0px auto;
+  }
+  &:hover{
+    background-color:#fff;
+    color:#a0a0a0;
   }
 }
 

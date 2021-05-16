@@ -15,9 +15,6 @@ export default function questions(state = {}, action) {
         [question.id]: question
       };
     case VOTE_QUESTION_ANSWER:
-      
-
-      console.log(state)
 
       return {
         ...state,

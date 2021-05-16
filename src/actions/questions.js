@@ -26,6 +26,7 @@ function addQuestionToUser(question,author) {
   return {
     type: ADD_QUESTIONS_TO_USER,
     question,
+    author,
   }
 }
 
@@ -40,13 +41,6 @@ export function handleAddQuestion(optionOneText, optionTwoText, author) {
   }
 }
 
-
-
-
-/*
-* param:answer optionTwo or optionOne
-*
-*/
 
 export function voteQuestionAnswer(authedUser, qid, answer) {
   return {

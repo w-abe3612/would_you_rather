@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -9,7 +9,7 @@ import UserPic from '../Common/UserPic'
 class QuestionItem extends Component {
     render() {
         return (
-            <li key={this.props.key} className="m-panel__item">
+            <li className="m-panel__item">
                 <header className="inner-header">
                     {this.props.userData.name} asks:
                 </header>
@@ -19,9 +19,9 @@ class QuestionItem extends Component {
                         <p className="m-watchword">Would You Rather ...</p>
                         <UserPic userIcon={this.props.userData.avatarURL} />
                         <p className="m-question_word">{this.props.questionData.optionOne.text} or {this.props.questionData.optionTwo.text}</p>
-                        {this.props.isCurrent==='unanswered'?(
+                        {this.props.isCurrent === 'unanswered' ? (
                             <Link to={`/questions/${this.props.questionId}`} className="m-view_poll_btn">View Poll</Link>
-                        ):(
+                        ) : (
                             <Link to={`/questions/${this.props.questionId}`} className="m-view_result">Result</Link>
                         )}
                     </div>
@@ -32,9 +32,8 @@ class QuestionItem extends Component {
 }
 
 QuestionItem.propTypes = {
-    isCurrent:PropTypes.string.isRequired,
-    key:PropTypes.string.isRequired,
-    questionId:PropTypes.string.isRequired,
+    isCurrent: PropTypes.string.isRequired,
+    questionId: PropTypes.string.isRequired,
 }
 
 

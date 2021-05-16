@@ -2,6 +2,10 @@
     display:block;
     width:100%;
     position:relative;
+    &[data-isopen="true"]{
+        height:100vh;
+        overflow: hidden;
+    }
     .l-inner{
         min-height: calc(100vh - 35px);
         height:100%;
@@ -10,7 +14,7 @@
             &:before{
                 content:"";
                 display: block;
-                padding-top: 110px;
+                padding-top: 50px;
             }
         }
     }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .reset, .m-header .m-content__nav .m-menu, .m-header .m-toggle_menu__inner .m-nav .m-menu, .m-login .inner-box .m-form .m-select_user .m-users, .m-leader_board .m-leader {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
   background: transparent;
 }
 
-.header-in-box, .m-login, .m-home .m-menu_wrap .m-panels .m-panel__item, .m-leader_board .m-leader .m-leader_card .m-score, .m-new_question, .m-question {
+.header-in-box, .m-login, .m-home .m-menu_wrap .m-panels .m-panel__item, .m-leader_board .m-leader .m-leader_card .m-score, .m-new_question, .m-question, .m-not_found {
   display: block;
   width: 96%;
   margin: 0 auto;
@@ -18,28 +19,28 @@
 }
 
 @media screen and (min-width: 768px) {
-  .header-in-box, .m-login, .m-home .m-menu_wrap .m-panels .m-panel__item, .m-leader_board .m-leader .m-leader_card .m-score, .m-new_question, .m-question {
+  .header-in-box, .m-login, .m-home .m-menu_wrap .m-panels .m-panel__item, .m-leader_board .m-leader .m-leader_card .m-score, .m-new_question, .m-question, .m-not_found {
     max-width: 768px;
   }
 }
 
-.header-in-box .inner-header, .m-login .inner-header, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-header, .m-leader_board .m-leader .m-leader_card .m-score .inner-header, .m-new_question .inner-header, .m-question .inner-header {
+.header-in-box .inner-header, .m-login .inner-header, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-header, .m-leader_board .m-leader .m-leader_card .m-score .inner-header, .m-new_question .inner-header, .m-question .inner-header, .m-not_found .inner-header {
   content: "";
   display: block;
   background-color: #E9E9E9;
 }
 
-.header-in-box .inner-box, .m-login .inner-box, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box, .m-new_question .inner-box, .m-question .inner-box {
+.header-in-box .inner-box, .m-login .inner-box, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box, .m-new_question .inner-box, .m-question .inner-box, .m-not_found .inner-box {
   padding: 0px 10px 30px 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .header-in-box .inner-box, .m-login .inner-box, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box, .m-new_question .inner-box, .m-question .inner-box {
+  .header-in-box .inner-box, .m-login .inner-box, .m-home .m-menu_wrap .m-panels .m-panel__item .inner-box, .m-leader_board .m-leader .m-leader_card .m-score .inner-box, .m-new_question .inner-box, .m-question .inner-box, .m-not_found .inner-box {
     padding: 0px 30px 30px 30px;
   }
 }
 
-.reset_btn, .submit_btn, .m-login .inner-box .m-form .m-submit, .m-new_question .inner_box .m-form .m-submit, .m-question .inner_box .m-content .m-form .m-submit, .view_poll_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn, .view_result_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_result, .m-header .m-content__hamburger_btn {
+.reset_btn, .submit_btn, .m-login .inner-box .m-form .m-submit, .m-new_question .inner_box .m-form .m-submit, .m-question .inner_box .m-content .m-form .m-submit, .view_poll_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_poll_btn, .view_result_btn, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_result, .back_btn, .m-question .inner_box .m-back_btn, .m-header .m-content__hamburger_btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -106,6 +107,33 @@
 .view_result_btn:hover, .m-home .m-menu_wrap .m-panels .m-panel__item .inner_box .m-content .m-view_result:hover {
   background-color: #61B2EC;
   color: #ffffff;
+}
+
+.back_btn, .m-question .inner_box .m-back_btn {
+  display: block;
+  width: 100%;
+  max-width: 120px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  padding: 8px 0px;
+  margin: 0px auto;
+  border-radius: 8px;
+  border: 2px solid #a0a0a0;
+  background-color: #a0a0a0;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .back_btn, .m-question .inner_box .m-back_btn {
+    margin: 0px 0px 0px auto;
+  }
+}
+
+.back_btn:hover, .m-question .inner_box .m-back_btn:hover {
+  background-color: #fff;
+  color: #a0a0a0;
 }
 
 /*
@@ -232,6 +260,11 @@ input, select, textarea, button {
   position: relative;
 }
 
+.l-layout[data-isopen="true"] {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .l-layout .l-inner {
   min-height: calc(100vh - 35px);
   height: 100%;
@@ -241,7 +274,7 @@ input, select, textarea, button {
 .l-layout .l-inner[data-loggedin="false"]:before {
   content: "";
   display: block;
-  padding-top: 110px;
+  padding-top: 50px;
 }
 
 .m-header {
@@ -553,7 +586,7 @@ input, select, textarea, button {
 
 @media screen and (min-width: 768px) {
   .m-login .inner-box .m-sign-in {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
@@ -565,28 +598,6 @@ input, select, textarea, button {
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  /*
- <div className="m-select_user" >
-                <ul className="m-users">
-                    {this.props.users !== undefined &&
-                        this.props.users.map((user) => (
-                            <li key={user.id} id={user.id} onClick={this.handleOnClick}>
-                                <label for={user.id + '--users'} >
-                                    <input type="radio" name="name" id={user.id + '--users'} />
-                                    <div>
-                                        <figure className="m-user_pic">
-                                            <img src="{user.avatarURL}" alt="" />
-                                        </figure>
-                                        <p className="m-user_name">{user.name}</p>
-                                    </div>
-                                </label>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-
-                */
 }
 
 .m-login .inner-box .m-form .m-select_user:before {
@@ -632,34 +643,6 @@ input, select, textarea, button {
   display: flex;
   height: 40px;
   width: 100%;
-  /*
-@mixin user_picture($maxwidth:100%,$pixWidth:100%,$padding:0px) {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    max-width:100%;
-    position:relative;
-    @include mq(md){
-      max-width:$maxwidth;
-      padding:0px $padding;
-    }
-    .inner-box{
-      display:block;
-      max-width:$pixWidth;
-      max-width:$pixWidth;
-      width:100%;
-      height:100%;
-      margin:auto;
-      img {
-        display:block;
-        width:100%;
-        height:100%;
-        border-radius:50%;
-      }
-    }
-}
-                            */
 }
 
 .m-login .inner-box .m-form .m-select_user .m-users li label input[type='radio'] {
@@ -864,9 +847,6 @@ input, select, textarea, button {
   }
 }
 
-/*
- 
-*/
 .m-leader_board {
   width: 96%;
   max-width: 768px;
@@ -902,31 +882,60 @@ input, select, textarea, button {
   height: 90px;
   left: -45px;
   top: -45px;
-  background-color: #E9E9E9;
   transform: rotate(45deg);
 }
 
-.m-leader_board .m-leader .m-leader_card .m-leader_pic {
+.m-leader_board .m-leader .m-leader_card:first-of-type:before {
+  background-color: #D8C06B;
+}
+
+.m-leader_board .m-leader .m-leader_card:nth-of-type(2):before {
+  background-color: #65C2B1;
+}
+
+.m-leader_board .m-leader .m-leader_card:last-of-type:before {
+  background-color: #E9E9E9;
+}
+
+.m-leader_board .m-leader .m-leader_card:after {
+  content: "★";
+  top: 4px;
+  left: 8px;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.m-leader_board .m-leader .m-leader_card .m-user_pic {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .m-leader_board .m-leader .m-leader_card .m-leader_pic {
-    content: "";
+  .m-leader_board .m-leader .m-leader_card .m-user_pic {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 142px;
-    margin: 0;
-    background: transparent;
+    max-width: 100%;
+    position: relative;
+    max-width: 182px;
+    border-right: solid 2px #EAEAEA;
   }
-  .m-leader_board .m-leader .m-leader_card .m-leader_pic img {
+  .m-leader_board .m-leader .m-leader_card .m-user_pic .inner-box {
     display: block;
-    width: 100%;
-    max-width: 132px;
+    width: 132px;
     height: 132px;
-    margin: 0 auto;
+    padding: 0;
+    margin: auto;
+  }
+  .m-leader_board .m-leader .m-leader_card .m-user_pic .inner-box img {
+    content: "";
+    display: block;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
   }
 }
 
@@ -941,7 +950,6 @@ input, select, textarea, button {
     width: calc(100% - 244px);
     background: transparent;
     border-right: solid 1px #E9E9E9;
-    border-left: solid 1px #E9E9E9;
   }
 }
 
@@ -954,34 +962,46 @@ input, select, textarea, button {
 
 .m-leader_board .m-leader .m-leader_card .m-content__name {
   font-size: 20px;
-  line-height: 1;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .m-leader_board .m-leader .m-leader_card .m-content__name {
     font-size: 24px;
     text-align: left;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
 }
 
-.m-leader_board .m-leader .m-leader_card .m-content .m-leader_pic {
+.m-leader_board .m-leader .m-leader_card .m-content .m-user_pic {
   display: flex;
-  height: 132px;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  margin-bottom: 10px;
 }
 
-.m-leader_board .m-leader .m-leader_card .m-content .m-leader_pic img {
+.m-leader_board .m-leader .m-leader_card .m-content .m-user_pic .inner-box {
   display: block;
-  width: 100%;
-  max-width: 132px;
-  height: 132px;
-  margin: 0 auto;
+  width: 182px;
+  height: 182px;
+  padding: 0;
+  margin: auto;
+}
+
+.m-leader_board .m-leader .m-leader_card .m-content .m-user_pic .inner-box img {
+  content: "";
+  display: block;
+  width: 182px;
+  height: 182px;
+  border-radius: 50%;
 }
 
 @media screen and (min-width: 768px) {
-  .m-leader_board .m-leader .m-leader_card .m-content .m-leader_pic {
+  .m-leader_board .m-leader .m-leader_card .m-content .m-user_pic {
     display: none;
   }
 }
@@ -1017,8 +1037,14 @@ input, select, textarea, button {
   height: 48px;
   padding: 12px 0px;
   line-height: 1;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .m-leader_board .m-leader .m-leader_card .m-score .inner-header {
+    font-size: 24px;
+  }
 }
 
 .m-leader_board .m-leader .m-leader_card .m-score .inner_box {
@@ -1049,22 +1075,6 @@ input, select, textarea, button {
   }
 }
 
-/*
-        <section class="m-new_question">
-            <header class="inner_header">
-                <h2>Create New Question</h2>
-            </header>
-            <div class="inner_box">
-                <p class="m-watchword">Would You Rather ...</p>
-                <form action="" class="m-form">
-                    <input type="text" name="" id="">
-                    <div class="m-separate"><span >OR</span></div>
-                    <input type="text" name="" id="">
-                    <button class="m-submit" type="button">Submit</button>
-                </form>
-            </div>
-        </section>
-*/
 .m-new_question {
   width: 96%;
   max-width: 768px;
@@ -1169,9 +1179,6 @@ input, select, textarea, button {
   background-color: #fff;
 }
 
-/*
-
-*/
 .m-question {
   width: 96%;
   max-width: 768px;
@@ -1354,14 +1361,21 @@ input, select, textarea, button {
 }
 
 .m-question .inner_box .m-results li {
-  border: solid #EAEAEA 1px;
+  border: solid 1px #EAEAEA;
   margin-bottom: 20px;
   padding: 10px 20px;
   border-radius: 10px;
+  position: relative;
+}
+
+.m-question .inner_box .m-results li[data-myvote="true"] {
+  border: solid 2px #9EDBC8;
+  color: #4EC8A3;
+  background-color: #f0fffa;
 }
 
 .m-question .inner_box .m-results li .m-question_word {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .m-question .inner_box .m-results li .m-graph {
@@ -1377,12 +1391,65 @@ input, select, textarea, button {
 .m-question .inner_box .m-results li .m-graph .m-tick_mark {
   content: "";
   display: block;
-  min-width: 30px;
+  min-width: 42px;
   line-height: 1;
-  padding: 11px 8px;
+  padding: 12px 8px;
   text-align: right;
   background-color: #4EC8A3;
   color: #ffffff;
+}
+
+.m-question .inner_box .m-results li .m-yourvote_icon {
+  position: absolute;
+  line-height: 1.2;
+  padding: 7px;
+  font-weight: bold;
+  width: 38px;
+  height: 38px;
+  font-size: 10px;
+  top: -15px;
+  right: -9px;
+  background-color: #ECC737;
+  color: #ffffff;
+  border-radius: 50%;
+  transform: rotate(20deg);
+}
+
+@media screen and (min-width: 768px) {
+  .m-question .inner_box .m-results li .m-yourvote_icon {
+    padding: 8px;
+    font-size: 16px;
+    width: 54px;
+    height: 54px;
+    top: -15px;
+  }
+}
+
+.m-not_found {
+  width: 96%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.m-not_found .inner-header h2 {
+  font-size: 20px;
+  padding: 8px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.m-not_found .inner_box {
+  width: 100%;
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .m-not_found .inner_box {
+    padding: 20px;
+  }
 }
 
 .m-footer {

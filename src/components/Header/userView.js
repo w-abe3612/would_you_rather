@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 import PropTypes from 'prop-types';
 import UserPic from '../Common/UserPic'
 
@@ -12,14 +11,14 @@ function UserView(props) {
         <div className="m-content__login">
             <p className="m-user">Hello, {props.loginUser.name}</p>
             <UserPic userIcon={props.loginUser.avatarURL} />
-            <a className="m-logout_btn" onClick={handleOnClick}>Loggout</a>
+            <div className="m-logout_btn" onClick={handleOnClick}>Loggout</div >
         </div>
     )
 }
 
 UserPic.UserView = {
-    loginUser:PropTypes.object.isRequired,
-    logoutUser:PropTypes.func.isRequired,
+    loginUser: PropTypes.object.isRequired,
+    logoutUser: PropTypes.func.isRequired,
 }
 
 export default UserView

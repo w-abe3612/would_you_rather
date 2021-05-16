@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import UserPic from '../Common/UserPic'
 import AnsweredScore from './AnsweredScore'
@@ -8,7 +7,7 @@ import ScoreDetail from './ScoreDetail'
 class LeaderList extends Component {
     render() {
         return (
-            <li key={this.props.id} className="m-leader_card">
+            <li  className="m-leader_card">
                 <UserPic userIcon={this.props.avatarURL} />
                 <div className="m-content">
                     <p className="m-content__name">{this.props.name}</p>
@@ -27,14 +26,12 @@ class LeaderList extends Component {
 }
 
 LeaderList.propTypes = {
-    userIcon:PropTypes.string.isRequired,
     id:PropTypes.string.isRequired,
     name:PropTypes.string.isRequired,
-    avatarUR:PropTypes.string.isRequired,
+    avatarURL:PropTypes.string.isRequired,
     answerCount:PropTypes.number.isRequired,
     questionCount:PropTypes.number.isRequired,
     total:PropTypes.number.isRequired,
-    index:PropTypes.number.isRequired,
 }
 
 export default LeaderList

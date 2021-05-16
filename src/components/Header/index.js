@@ -1,26 +1,19 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NavLinks from './NavLinks'
+import PropTypes from 'prop-types';
 import UserView from './UserView'
 import HamburgerBtn from './HamburgerBtn'
 import SlideMenu from './SlideMenu'
 import { handleLogoutUser } from '../../actions/authedUser'
 
 class Header extends Component {
-    state = {
-        isToggle: false
-    }
 
     logoutUser = () => {
         const { dispatch } = this.props
         dispatch(handleLogoutUser())
     }
 
-    setToggle = () => {
-        this.setState({
-            isToggle: !this.state.isToggle
-        })
-    }
     render() {
         return (
             <header className="m-header">
@@ -32,19 +25,24 @@ class Header extends Component {
                         logoutUser={this.logoutUser}
                     />
                     <HamburgerBtn
-                        isToggle={this.state.isToggle}
-                        setToggle={this.setToggle}
+                        isToggle={this.props.isToggle}
+                        setToggle={this.props.setToggle}
                     />
                 </section>
                 <SlideMenu
                     loginUser={this.props.loginUser}
-                    isToggle={this.state.isToggle}
+                    isToggle={this.props.isToggle}
                     logoutUser={this.logoutUser}
-                    setToggle={this.setToggle}
+                    setToggle={this.props.setToggle}
                 />
             </header>
         )
     }
+}
+
+Header.propTypes = {
+    setToggle:PropTypes.func.isRequired,
+    isToggle:PropTypes.bool.isRequired,
 }
 
 function mapStateToProps({ authedUser, users }) {

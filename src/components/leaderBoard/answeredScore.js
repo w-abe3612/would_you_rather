@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 import PropTypes from 'prop-types';
 
 function AnsweredScore(props) {
@@ -14,7 +13,7 @@ function AnsweredScore(props) {
 }
 
 AnsweredScore.propTypes = {
-    total:PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
 }
 
 export default AnsweredScore

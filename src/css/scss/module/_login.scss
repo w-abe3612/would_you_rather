@@ -41,7 +41,7 @@
             color:#4EC8A3;
             margin-bottom:20px;
             @include mq(md){
-                font-size:32px;
+                font-size: 28px;
             }
         }
 
@@ -67,29 +67,6 @@
                     border-top: 8px solid #424242;
                     background-color: transparent;
                 }
-
-                /*
- <div className="m-select_user" >
-                <ul className="m-users">
-                    {this.props.users !== undefined &&
-                        this.props.users.map((user) => (
-                            <li key={user.id} id={user.id} onClick={this.handleOnClick}>
-                                <label for={user.id + '--users'} >
-                                    <input type="radio" name="name" id={user.id + '--users'} />
-                                    <div>
-                                        <figure className="m-user_pic">
-                                            <img src="{user.avatarURL}" alt="" />
-                                        </figure>
-                                        <p className="m-user_name">{user.name}</p>
-                                    </div>
-                                </label>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-
-                */
 
                 .m-selectedBox{
                     line-height: 1;
@@ -122,34 +99,7 @@
                             input[type='radio']{
                                 display:none;
                             }
-                            /*
-@mixin user_picture($maxwidth:100%,$pixWidth:100%,$padding:0px) {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    max-width:100%;
-    position:relative;
-    @include mq(md){
-      max-width:$maxwidth;
-      padding:0px $padding;
-    }
-    .inner-box{
-      display:block;
-      max-width:$pixWidth;
-      max-width:$pixWidth;
-      width:100%;
-      height:100%;
-      margin:auto;
-      img {
-        display:block;
-        width:100%;
-        height:100%;
-        border-radius:50%;
-      }
-    }
-}
-                            */
+
                             .m-user_pic{
                                 @include user_picture(32px);
                                 max-width:40px;

@@ -4,21 +4,20 @@ import LeaderList from './LeaderList'
 
 class LeaderBoard  extends Component{
     render(){
-        console.log(this.props.leaderboardData)
         return(
             <section className="m-leader_board">
                 <ul className="m-leader">
                     {
-                        this.props.leaderboardData.map( (user,i)=> (
-
+                        this.props.leaderboardData !== null &&
+                        this.props.leaderboardData.map( (user) => (
                             <LeaderList
+                                key={user.id + '--leaderlist__item'}
                                 id={user.id}
                                 name={user.name}
                                 avatarURL={user.avatarURL}
                                 answerCount={user.answerCount}
                                 questionCount={user.questionCount}
                                 total={user.total}
-                                index={i}
                             />
                         ))
                     }   
@@ -38,8 +37,7 @@ function mapStateToProps({ users }) {
         questionCount: user.questions.length,
         total: Object.values(user.answers).length + user.questions.length
       }))
-      .sort((a, b) => a.total - b.total)
-      .reverse()
+      .sort((a, b) =>  b.total - a.total)
       .slice(0, 3);
     return {
       leaderboardData

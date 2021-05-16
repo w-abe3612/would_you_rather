@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { handleVoteQuestionAnswer } from '../../actions/questions'
 import UserPic from '../Common/UserPic'
@@ -8,26 +7,25 @@ import UserPic from '../Common/UserPic'
 class Unanswered extends Component {
 
     state = {
-        value: ''
+        optionValue: ''
     }
 
     handleChange = (e) => {
 
         this.setState(() => ({
-            value: e.target.value,
+            optionValue: e.target.value,
         }))
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const { value } = this.state
         const { dispatch, questionData, authedUser } = this.props
 
-        dispatch(handleVoteQuestionAnswer(authedUser.id, questionData.id, this.state.value))
+        dispatch(handleVoteQuestionAnswer(authedUser.id, questionData.id, this.state.optionValue))
 
         this.setState(() => ({
-            value: ''
+            optionValue: ''
         }))
     }
     render() {
@@ -50,7 +48,7 @@ class Unanswered extends Component {
                                     name="option"
                                     value="optionOne"
                                     className="m-radio-input" />
-                                <label for="optionOne">{this.props.questionData.optionOne.text}</label>
+                                <label htmlFor="optionOne">{this.props.questionData.optionOne.text}</label>
                                 <input
                                     type="radio"
                                     onChange={this.handleChange}
@@ -58,11 +56,11 @@ class Unanswered extends Component {
                                     name="option"
                                     value="optionTwo"
                                     className="m-radio-input" />
-                                <label for="optionTwo">{this.props.questionData.optionTwo.text}</label>
+                                <label htmlFor="optionTwo">{this.props.questionData.optionTwo.text}</label>
                             </div>
                             <button className="m-submit"
                                 type="submit"
-                                disabled={!this.state.value} >Submit</button>
+                                disabled={!this.state.optionValue} >Submit</button>
                         </form>
                     </div>
                 </div>

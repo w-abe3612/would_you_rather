@@ -11,6 +11,7 @@ Users create a question with two choices, vote on it, and share the results.
 Only _DATA.js existed, and the challenge was to implement everything else.
 
 The variables in _DATA.js are seen as responses from the backend, and the frontend is created with the assumption of API integration.
+
 **Live Demo**:[Demo](https://nostalgic-sammet-63456b.netlify.app/)
 
 ## TL;DR

@@ -22,6 +22,8 @@ To get started developing right away:
 * start the development server with `npm start`
 
 ## UI MockUp
+このプロジェクトのデザインのモックとなります。
+私の方で課題を解釈し、デザインをしています。
 
 * [Login Page](https://www.figma.com/proto/YHg85xWZxVEdVyXlJSFPMo/Untitled?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
 * [Home Page](https://www.figma.com/proto/YHg85xWZxVEdVyXlJSFPMo/Untitled?node-id=10%3A80&scaling=min-zoom&page-id=10%3A69)
